@@ -1,0 +1,123 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
+    link(rel='stylesheet', href='/stylesheets/layout.css')
+    link(rel='stylesheet', href='/stylesheets/media-queries.css')
+  body
+    //- Navigation
+    .con-navbar 
+      .navbar.flex.flx-spc-btw 
+        a(href="/").left-side.flex.flx-spc-btw
+          .nav-brand-name
+            h2 the starhub
+          .nav-brand-logo.flex
+            img(src="images/starhub-logo.png", alt="The StarHub") 
+        .right-side
+          .links 
+            ul.flex.flx-spc-btw
+                li
+                  a(href="/") home
+                li
+                  a(href="/") givings
+                li
+                  a(href="/") clan 
+                li
+                  a(href="/") serve and support
+                li
+                  a(href="/") blog
+                li
+                  a(href="/") contact
+                li
+                  a(href="/") about 
+
+    //- Main Content
+    block content
+
+    //- Section B
+    .con-subscribe 
+      .subscribe 
+        .header
+          h1 Subscribe for our
+            br
+            |Weekly Newsletters
+        form(action="" method="").flex.flx-spc-btw
+          .form-element
+            input(type="text" placeholder="Email Address")
+          .form-element 
+            button(type="submit") Subscribe
+
+    //- Footer
+    .con-footer
+      .footer-A.grid.grid-05
+        .footer-content
+          .header
+            .footer-brand.flex.flx-spc-btw
+              .footer-brand-name
+                h2 the starhub
+              .footer-brand-logo.flex
+                img(src="images/starhub-logo.png", alt="The StarHub")
+          .content 
+            p We are commited to ensuring digital accessibility
+        .footer-content
+          h1.header support 
+          ul 
+            a(href="/")
+              li Givings
+            a(href="/")
+              li Accessories
+            a(href="/")
+              li Support
+        .footer-content
+          h1.header service
+          ul 
+            li 
+              a(href="") Join a workforce
+            li
+              a(href="") Register for service
+            li
+              a(href="") Join a clan
+        .footer-content
+          h1.header about
+          ul 
+            li
+              a(href="") About Us
+            li
+              a(href="") Announcements
+            li
+              a(href="") Contact
+        .footer-content
+          h1.header our address
+          .content 
+            p 2 Ziatech Road, Oregun, Lagos
+          .socials 
+            ul.flex.flx-spc-btw
+              li 
+                a(href="/")
+                  i.fab.fa-facebook-f 
+              li 
+                a(href="/")
+                  i.fab.fa-instagram
+              li 
+                a(href="/")
+                  i.fab.fa-twitter
+              li 
+                a(href="/")
+                  i.fab.fa-youtube
+      .footer-B.flex.flx-spc-btw
+        .copyrights.flex.flx-spc-btw
+          p &copy;&nbsp;
+            .yearstamp 0000
+            |&nbsp;The Starhub.
+          
+        ul.flex.flx-spc-btw
+          a(href="") 
+            li Services
+          a(href="") 
+            li Givings
+          a(href="") 
+            li Feedback
+  script(src="javascripts/library/jquery-3.5.1.min.js")
+  script(src="javascripts/timestamp.js")
