@@ -2,14 +2,17 @@ doctype html
 html
   head
     title= title
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
     link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
-    link(rel='stylesheet', href='/stylesheets/layout.css')
+    link(rel='stylesheet', href='/stylesheets/layout-style.css')
     link(rel='stylesheet', href='/stylesheets/media-queries.css')
   body
     //- Navigation
     .con-navbar 
-      .navbar.flex.flx-spc-btw 
+      .navbar.container.flex.flx-spc-btw 
         a(href="/").left-side.flex.flx-spc-btw
           .nav-brand-name
             h2 the starhub
@@ -31,26 +34,45 @@ html
                 li
                   a(href="/") contact
                 li
-                  a(href="/") about 
+                  a(href="/") about
+        .con-toggle
+          .toggle
 
-    //- Main Content
-    block content
+    .main
+      .con-menu 
+        .menu 
+          ul.flex.flx-dir
+            li
+              a(href="/") home
+            li
+              a(href="/") givings
+            li
+              a(href="/") clan 
+            li
+              a(href="/") blog
+            li
+              a(href="/") contact
+            li
+              a(href="/") about
 
-    //- Section B
-    .con-subscribe 
-      .subscribe 
-        .header
-          h1 Subscribe for our
-            br
-            |Weekly Newsletters
-        form(action="" method="").flex.flx-spc-btw
-          .form-element
-            input(type="text" placeholder="Email Address")
-          .form-element 
-            button(type="submit") Subscribe
+      //- Main Content
+      block content
+
+      //- Section B
+      .con-subscribe 
+        .subscribe 
+          .header
+            h1 Subscribe for our
+              br
+              |Weekly Newsletters
+          form(action="" method="").flex.flx-spc-btw
+            .form-element
+              input(type="text" placeholder="Email Address")
+            .form-element 
+              button(type="submit") Subscribe
 
     //- Footer
-    .con-footer
+    .con-footer.container
       .footer-A.grid.grid-05
         .footer-content
           .header
@@ -120,4 +142,4 @@ html
           a(href="") 
             li Feedback
   script(src="javascripts/library/jquery-3.5.1.min.js")
-  script(src="javascripts/timestamp.js")
+  script(src="javascripts/style.js")

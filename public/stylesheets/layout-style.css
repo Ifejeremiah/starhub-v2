@@ -26,7 +26,7 @@ body {
 
 /* Utilites */
 .container {
-  width: 80%;
+  width: 86%;
   margin: 0 auto;
 }
 
@@ -62,10 +62,16 @@ img {
 /* Navigation */
 .con-navbar {
   color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 100;
 }
 
 .con-navbar .navbar {
-  padding: 50px 80px;
+  padding: 40px 0 20px 0;
 }
 
 .con-navbar .navbar .left-side,
@@ -92,13 +98,29 @@ img {
   font-weight: 500;
 }
 
+/*Remove Navbar Menu and Toggle */
+.con-menu {
+  display: none;
+}
+
+.con-toggle {
+  display: none;
+}
+
+/* Main Div*/
+.main {
+  margin-top: 90px;
+}
+
 /* Section B */
 .con-subscribe {
-  padding: 80px 160px;
+  padding: 80px 0;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .con-subscribe form {
-  width: 400px;
+  width: 600px;
   margin: 14px 0;
 }
 
@@ -122,15 +144,11 @@ img {
   margin-left: 10px;
   font-weight: 500;
   background: rgb(246, 246, 246);
-  padding: 8px 20px;
+  padding: 10px 30px;
   cursor: pointer;
 }
 
 /* Footer */
-.con-footer {
-  padding: 0 80px;
-}
-
 .con-footer .footer-content .header {
   padding: 30px 0;
 }
@@ -165,8 +183,12 @@ img {
   width: 160px;
 }
 
+.con-footer .footer-content .socials li:hover {
+  transform: translateY(-10px);
+}
+
 .con-footer .footer-B {
-  margin: 30px 0;
+  margin: 30px 0 40px 0;
   border-top: 3px solid rgb(226, 226, 226);
   padding-top: 30px;
 }
