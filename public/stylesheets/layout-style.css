@@ -14,6 +14,7 @@
   font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: .25s;
   background: inherit;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -70,6 +71,10 @@ img {
   z-index: 100;
 }
 
+.con-navbar.active {
+  opacity: 0.9;
+}
+
 .con-navbar .navbar {
   padding: 40px 0 20px 0;
 }
@@ -98,7 +103,23 @@ img {
   font-weight: 500;
 }
 
-/*Remove Navbar Menu and Toggle */
+/* Back To Top Button */
+.con-top-btn {
+  position: fixed;
+  display: none;
+  bottom: 40px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.top-btn {
+  border-radius: 14px;
+  padding: 8px 14px;
+  background: #b4b3b3;
+  color: #fff;
+}
+
+/*Slide Menu */
 .con-menu {
   display: none;
 }
@@ -107,9 +128,19 @@ img {
   display: none;
 }
 
+@keyframes roll-in {
+  0% {
+      left: -400px;
+  }
+
+  100% {
+      left: 0;
+  }
+}
+
 /* Main Div*/
 .main {
-  margin-top: 90px;
+  padding-top: 90px;
 }
 
 /* Section B */
@@ -146,6 +177,13 @@ img {
   background: rgb(246, 246, 246);
   padding: 10px 30px;
   cursor: pointer;
+}
+
+.con-subscribe form .form-element button:hover {
+  transform: scale(0.98);
+  background:rgb(177, 176, 176); 
+  color: #fff;
+  border-radius: 0.25rem;
 }
 
 /* Footer */

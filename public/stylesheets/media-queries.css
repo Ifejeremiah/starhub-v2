@@ -36,7 +36,7 @@
     background-position: center;
   }
 
-  /* Add Menu Toggle Elements*/
+  /* Slide Menu */
   .con-menu.active {
     display: block;
   }
@@ -45,18 +45,19 @@
     width: 50%;
     height: 100%;
     padding: 60px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 110;
     background: #f2f2f2;
     opacity: 0.9;
     border-right: 1px solid rgb(206, 206, 206);
-    /* transition: transform 0.8s ease-in-out; */
+    animation: roll-in 0.5s;
   }
 
   .con-menu .menu li {
-    margin: 14px 0;
+    margin: 20px 0;
+    text-transform: uppercase;
   }
 
   /* Section B */
