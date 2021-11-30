@@ -18,7 +18,10 @@
 }
 
 :root {
-  --black-bgrd-color: #333;
+  --primary-color: rgb(232, 253, 253);
+  --secondary-color: #1c3fa8;
+  --dark-color: #002240;
+  --light-color: #f4f4f4;
 }
 
 body {
@@ -31,10 +34,19 @@ body {
   margin: 0 auto;
 }
 
+.sections-07 {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.flx-strt {
+  align-items: flex-start;
 }
 
 .flx-spc-btw {
@@ -48,7 +60,10 @@ body {
 .grid {
   display: grid;
   justify-content: center;
-  align-items: flex-start;
+}
+
+.grid-02 {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .grid-05 {
@@ -60,6 +75,24 @@ img {
   width: 100%;
 }
 
+.btn {
+  padding: 9px 20px;
+  border: 2px solid rgb(144, 143, 143);
+  border-radius: 0.25rem;
+  width: 160px;
+}
+
+.btn:hover {
+  background: #9b44ff;
+  color: #fff;
+  border-color: #fff;
+  transform: scale(0.99);
+}
+
+.margin-02 {
+  margin: 20px 0;
+}
+
 /* Navigation */
 .con-navbar {
   color: #000;
@@ -67,8 +100,8 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
-  z-index: 100;
+  background: var(--primary-color);
+  z-index: 1000;
 }
 
 .con-navbar.active {
@@ -76,7 +109,7 @@ img {
 }
 
 .con-navbar .navbar {
-  padding: 40px 0 20px 0;
+  padding: 20px 0;
 }
 
 .con-navbar .navbar .left-side,
@@ -110,13 +143,15 @@ img {
   bottom: 40px;
   right: 20px;
   cursor: pointer;
+  z-index: 1000;
+  background: transparent; 
 }
 
 .top-btn {
-  border-radius: 14px;
   padding: 8px 14px;
-  background: #b4b3b3;
   color: #fff;
+  background: #b4b3b3;
+  border-radius: 14px;
 }
 
 /*Slide Menu */
@@ -140,14 +175,13 @@ img {
 
 /* Main Div*/
 .main {
-  padding-top: 90px;
+  margin-top: 80px;
 }
 
-/* Section B */
+/* Subscribe */
 .con-subscribe {
   padding: 80px 0;
-  width: 70%;
-  margin: 0 auto;
+  background: #fff;
 }
 
 .con-subscribe form {
@@ -172,18 +206,14 @@ img {
 }
 
 .con-subscribe form .form-element button {
-  margin-left: 10px;
-  font-weight: 500;
-  background: rgb(246, 246, 246);
-  padding: 10px 30px;
+  margin: 0 10px;
   cursor: pointer;
+  padding: 12px 20px;
+  font-size: 1rem;
 }
 
-.con-subscribe form .form-element button:hover {
-  transform: scale(0.98);
-  background:rgb(177, 176, 176); 
-  color: #fff;
-  border-radius: 0.25rem;
+.con-subscribe form .form-element button.btn:hover {
+  background: rgb(102, 102, 102);
 }
 
 /* Footer */

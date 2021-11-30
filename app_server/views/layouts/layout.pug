@@ -8,6 +8,7 @@ html
     link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
     link(rel='stylesheet', href='/stylesheets/layout-style.css')
+    link(rel='stylesheet', href='/stylesheets/homepage-style.css')
     link(rel='stylesheet', href='/stylesheets/media-queries.css')
   body
     //- Navigation
@@ -40,6 +41,7 @@ html
 
     //- Main Div
     .main
+
       //- Back To Top Button
       .con-top-btn
         .top-btn
@@ -65,9 +67,9 @@ html
       //- Main Content
       block content
 
-      //- Section B
-      .con-subscribe 
-        .subscribe 
+      //- Subscribe
+      .con-subscribe
+        .subscribe.sections-07 
           .header
             h1 Subscribe for our
               br
@@ -76,7 +78,7 @@ html
             .form-element
               input(type="text" placeholder="Email Address")
             .form-element 
-              button(type="submit") Subscribe
+              button(type="submit").btn Subscribe
 
     //- Footer
     .con-footer.container

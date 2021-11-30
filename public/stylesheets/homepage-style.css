@@ -1,0 +1,62 @@
+/* Styling For Homepage */
+
+/* Section A */
+.con-section-a {
+  padding-top: 80px;
+  position: relative;
+  width: 100%;
+  background: var(--primary-color);
+}
+
+.con-section-a .section-a {
+  margin: 0 auto;
+}
+
+.con-section-a .section-a .header p {
+  width: 600px;
+  text-align: center;
+}
+
+.con-section-a .section-a .header .btn:hover {
+  background: rgb(102, 102, 102);
+}
+
+.con-img-background {
+  background: linear-gradient(to right, #cffde1, #cc80f8, #fce6b5);
+  margin: 100px 0 40px 0;
+}
+
+.con-img-background .img-background img {
+  position: relative;
+  z-index: 110;
+}
+
+.con-img-background .img-background::before {
+  content: '';
+  left: 0;
+  right: 0;
+  top: 360px;
+  position: absolute;
+  z-index: 100;
+  height: 70px;
+  background: inherit;
+  transform: skewY(-3deg);
+  -webkit-transform: skewY(-3deg);
+  -moz-transform: skewY(-3deg);
+  -ms-transform: skewY(-3deg);
+}
+
+.con-img-background .img-background::after {
+  content: '';
+  left: 0;
+  right: 0;
+  bottom: -32px;
+  position: absolute;
+  z-index: 100;
+  height: 70px;
+  background: inherit;
+  transform: skewY(3deg);
+  -webkit-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+}
