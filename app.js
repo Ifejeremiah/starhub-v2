@@ -8,7 +8,7 @@ const indexRouter = require('./app_server/routes');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'app_server','views'));
+app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
@@ -22,8 +22,9 @@ app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  res.status(400).render('error', {
-    status: 400,
+  res.status(404).render('error', {
+    title: 'Page Not Found',
+    status: 404,
     message: 'Sorry, we could not find this page'
   });
 });
@@ -40,9 +41,9 @@ app.use(function (err, req, res, next) {
   }
 
   res.status(err.status || 500).render('error', {
-    pageTitle: 'Server Error',
+    title: 'Server Error',
     status: err.status || 500,
-    message: 'Sorry, something somewhere just got wrong.'
+    message: 'Sorry, something somewhere just got wrong'
   });
 });
 

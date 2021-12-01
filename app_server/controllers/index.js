@@ -1,6 +1,6 @@
 // Homepage Controller
 const homeCtrl = (req, res) => {
-  res.render('homepage', { title: 'StarHub - The Youth Expression of Daystar Christian Center.' });
+  res.render('homepage', { title: 'The StarHub - Youth Expression of Daystar Christian Center.' });
 };
 
 

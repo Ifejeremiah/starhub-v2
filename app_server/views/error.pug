@@ -1,6 +1,24 @@
-extends layouts/layout
+doctype html
+html
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
+    link(rel='stylesheet', href='/stylesheets/layout-style.css')
+    link(rel='stylesheet', href='/stylesheets/media-queries.css')
+  body
+    .con-error
+      .container.flex.flx-dir
+        .img
+          - if(status === 404)
+            img(src="images/error-404.gif", alt="404 - Page Not Found")
+          - else if(status === 500)
+            img(src="images/error-500.jpg", alt="404 - Page Not Found")
+        .header.flex.flx-dir
+          h1= status
+          h2= message
+          a(href="/")
+            .btn.flex Go back Home 
 
-block content
-  .container
-    h1= status 
-    h2= message

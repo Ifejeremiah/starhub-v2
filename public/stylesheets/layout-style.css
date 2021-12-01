@@ -20,7 +20,7 @@
 :root {
   --primary-color: rgb(232, 253, 253);
   --secondary-color: #1c3fa8;
-  --dark-color: #002240;
+  --dark-btn-hover-color: rgb(41, 41, 41);
   --light-color: #f4f4f4;
 }
 
@@ -83,7 +83,7 @@ img {
 }
 
 .btn:hover {
-  background: #9b44ff;
+  background: #6613c5;
   color: #fff;
   border-color: #fff;
   transform: scale(0.99);
@@ -135,6 +135,12 @@ img {
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+.con-navbar .navbar .right-side ul li:hover {
+  background: #b52ef3;
+  border-radius: 0.25rem;
+  color: #fff;
 }
 
 /* Back To Top Button */
@@ -214,7 +220,7 @@ img {
 }
 
 .con-subscribe form .form-element button.btn:hover {
-  background: rgb(102, 102, 102);
+  background: var(--dark-btn-hover-color);
 }
 
 /* Footer */
@@ -264,4 +270,32 @@ img {
 
 .con-footer .footer-B ul {
   width: 260px;
+}
+
+/* 404 - Error */
+.con-error {
+  background: var(--primary-color);
+  height: 100vh;
+}
+
+.con-error .img{
+  width: 300px;
+  margin: 40px 0 20px 0;
+}
+
+.con-error img {
+  border-radius: 20px;
+}
+
+.con-error .header h1 {
+  color: rgb(97, 4, 126);
+  letter-spacing: 4px;
+}
+
+.con-error .header h2 {
+  text-align: center;
+}
+
+.con-error .header .btn {
+  margin: 14px 0;
 }

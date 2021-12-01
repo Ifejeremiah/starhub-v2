@@ -9,6 +9,10 @@
     padding: 40px 0;
   }
 
+ .sections-07 {
+    width: 86%;
+  }
+
   /*Remove Navbar List Items */
   .con-navbar .navbar .right-side{
     display: none;
@@ -51,8 +55,8 @@
 
   .con-menu .menu {
     width: 50%;
-    height: 100%;
-    padding: 60px;
+    height: 100vh;
+    padding: 60px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,16 +67,31 @@
     animation: roll-in 0.5s;
   }
 
+  .con-menu .menu ul {
+    padding: 0 20px;
+  }
+
   .con-menu .menu li {
-    margin: 20px 0;
-    text-transform: uppercase;
+    padding: 10px;
+    border-bottom: 1px solid #888;
+    text-transform: capitalize;
+    color: rgb(78, 78, 78);
+    font-size: 1.2rem;
+  }
+
+  .con-menu .menu li.last-child {
+    border-bottom: 0;
+  }
+
+  .con-menu .menu li:hover {
+    background: rgb(126, 49, 226);
+    color: #fff;
+    border-radius: 0.25rem;
   }
 
   /* Section A */
-  .con-section-a .section-a .header p,
-  .con-section-a .section-a .header h1 {
-    width: 96%;
-    text-align: center;
+  .con-section-a .section-a .header p {
+    width: 94%;
   }
 
   .con-img-background .img-background::before {
@@ -116,5 +135,9 @@
     padding: 16px 0;
   }
 
-}
+  /* 404 - Error */
+  .con-error .img{
+    width: 94%;
+  }
 
+}
