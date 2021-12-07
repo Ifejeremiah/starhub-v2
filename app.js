@@ -31,20 +31,9 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  if (req.app.get('env')) {
-    console.log(err);
-  }
-
-  res.status(err.status || 500).render('error', {
-    title: 'Server Error',
-    status: err.status || 500,
-    message: 'Sorry, something somewhere just got wrong'
-  });
+  // Send an error log to console if in development mode
+  if (req.app.get('env')) console.log(err);
+  res.status(500).sendFile('public/templates/error.html', { root: __dirname })
 });
 
 module.exports = app;

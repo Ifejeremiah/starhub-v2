@@ -1,5 +1,7 @@
-/* Media Queries */
-@media (max-device-width: 700px) {
+/* Media Queries Rules */
+
+/* Tablets and Under */
+@media (max-device-width: 800px) {
   /* Utility */
   .grid {
     grid-template-columns: 1fr;
@@ -91,13 +93,63 @@
 
   /* Section A */
   .con-section-a .section-a .header p {
-    width: 94%;
+    width: 92%;
+  }
+
+  .con-section-a .section-a .header h2 {
+    width: 98%;
+    font-size: 1.4rem;
   }
 
   .con-img-background .img-background::before {
     top: 480px;
   }
 
+  /* Countdowns */
+  .con-show-overlay {
+    margin: 20px 0;
+  }
+
+  .show-overlay {
+    height: 600px;
+  }
+
+  .show-overlay .overlay-img {
+    padding-top: 100px;
+  }
+
+  .show-overlay .overlay-content {
+    top: 0;
+  }
+
+  .show-overlay .con-right-side, .show-overlay .con-left-side, .show-overlay .con-bottom-side {
+    position: unset;
+  } 
+
+  .show-overlay .con-left-side {
+    padding: 16px 0;
+    width: 100%;
+  }
+
+  .show-overlay .con-right-side .right-side,
+  .con-show-overlay .con-left-side .left-side {
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .show-overlay .con-bottom-side {
+    width: 100%;
+    text-align: center;
+  }
+
+  .show-overlay .con-bottom-side .top {
+    padding-top: 18px;
+  }
+
+  .show-overlay .con-bottom-side .bottom {
+    width: 100%;
+  }
+  
   /* Subscribe */
   .con-subscribe {
     padding: 40px 0;

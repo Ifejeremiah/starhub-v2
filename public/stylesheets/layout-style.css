@@ -1,6 +1,6 @@
 /* Master Styling */
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,17 +11,19 @@
   text-decoration: none;
   list-style: none;
   color: inherit;
-  font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Raleway', sans-serif;
   transition: .25s;
-  background: inherit;
   scroll-behavior: smooth;
 }
 
 :root {
   --primary-color: rgb(232, 253, 253);
   --secondary-color: #1c3fa8;
+  --show-overlay-color: rgb(255, 115, 0);
   --dark-btn-hover-color: rgb(41, 41, 41);
-  --light-color: #f4f4f4;
+  --linear-01: #cffde1;
+  --linear-02: #cc80f8;
+  --linear-03: #fce6b5; 
 }
 
 body {
@@ -217,6 +219,7 @@ img {
   cursor: pointer;
   padding: 12px 20px;
   font-size: 1rem;
+  background: transparent;
 }
 
 .con-subscribe form .form-element button.btn:hover {

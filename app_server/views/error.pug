@@ -14,8 +14,6 @@ html
         .img
           - if(status === 404)
             img(src="images/error-404.gif", alt="404 - Page Not Found")
-          - else if(status === 500)
-            img(src="images/error-500.jpg", alt="404 - Page Not Found")
         .header.flex.flx-dir
           h1= status
           h2= message
