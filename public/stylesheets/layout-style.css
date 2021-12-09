@@ -77,18 +77,17 @@ img {
   width: 100%;
 }
 
-.btn {
-  padding: 9px 20px;
-  border: 2px solid rgb(144, 143, 143);
-  border-radius: 0.25rem;
-  width: 160px;
+.btn p {
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-.btn:hover {
-  background: #6613c5;
-  color: #fff;
-  border-color: #fff;
-  transform: scale(0.99);
+.btn .img {
+  width: 26px;
+}
+
+.btn:hover p{
+  color: var(--show-overlay-color);
 }
 
 .margin-02 {
@@ -217,13 +216,28 @@ img {
 .con-subscribe form .form-element button {
   margin: 0 10px;
   cursor: pointer;
-  padding: 12px 20px;
-  font-size: 1rem;
+  padding: 0 10px;
   background: transparent;
 }
 
-.con-subscribe form .form-element button.btn:hover {
-  background: var(--dark-btn-hover-color);
+.con-subscribe form .server-msg {
+  display: none;
+  padding: 6px 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+.con-subscribe form .server-msg.error-msg {
+  display: block;
+  background: rgb(235, 63, 63);
+  width: 300px;
+}
+
+.con-subscribe form .server-msg.success-msg {
+  display: block;
+  background: rgb(75, 214, 20);
+  width: 400px;
 }
 
 /* Footer */

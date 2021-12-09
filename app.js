@@ -2,8 +2,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+require('dotenv').config();
 
-const indexRouter = require('./app_server/routes');
+require('./app_api/models/db') // Link in database
+
+const mainRouter = require('./app_server/routes/app-routes');
+const apiRouter = require('./app_api/routes/api-routes');
 
 const app = express();
 
@@ -18,7 +22,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.use('/', indexRouter);
+app.use('/', mainRouter);
+// API Route
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

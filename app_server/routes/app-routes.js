@@ -2,9 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 // Controllers
-const { homeCtrl } = require('../controllers');
+const { homeCtrl, subscribe } = require('../controllers/app-control');
 
 /* GET home page. */
-router.get('/', homeCtrl);
+router
+  .route('/')
+  .get(homeCtrl)
+  .post(subscribe);
 
 module.exports = router;

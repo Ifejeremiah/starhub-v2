@@ -74,11 +74,17 @@ html
             h1 Subscribe for our
               br
               |Weekly Newsletters
-          form(action="" method="").flex.flx-spc-btw
-            .form-element
-              input(type="text" placeholder="Email Address")
-            .form-element 
-              button(type="submit").btn Subscribe
+          form(action="" method="POST")
+            .server-msg
+              p
+            .form-elements.flex.flx-spc-btw
+              .form-element
+                input(type="email" placeholder="Email Address" name="email" id="email" autocomplete="off" spellcheck="false")
+              .form-element 
+                button(type="submit").btn.flex 
+                  p Subscribe
+                  .img
+                    img(src="images/btn-arrow.png")
 
     //- Footer
     .con-footer.container
