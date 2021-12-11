@@ -2,12 +2,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const passport = require('passport');
 require('dotenv').config();
 
-require('./app_api/models/db') // Link in database
-
-const mainRouter = require('./app_server/routes/app-routes');
-const apiRouter = require('./app_api/routes/api-routes');
+require('./app_api/models') // Link in database
+require('./app_api/config/passport');  // Passport configuration
+const mainRouter = require('./app_server/routes/app-routes');   //Main Routes
+const apiRouter = require('./app_api/routes');   //API Routes
 
 const app = express();
 
@@ -21,10 +22,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Passport's middleware
+app.use(passport.initialize());
+
 // Routes
 app.use('/', mainRouter);
 // API Route
 app.use('/api', apiRouter);
+
+// Catch UnAuthorized Errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    return res.status(401).json({ error: `${err.name} : ${err.message}` })
+  } next();
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

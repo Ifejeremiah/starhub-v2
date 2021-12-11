@@ -67,4 +67,5 @@ process.on('SIGTERM', () => {
 // ----------------------------------------------------------------------------------------------------------------
 // INCLUDE COMPILED DATABASE MODELS AND OTHER FILES HERE
 
+require('./users.js');
 require('./subscription-emails');   //Replace this listing with compiled database model
