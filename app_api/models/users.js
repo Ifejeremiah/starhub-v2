@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   approvalCode: String,
+  dateRegistered: {
+    type: Date,
+    'default': Date.now
+  },
   salt: String,
   hash: String
 });
@@ -24,7 +28,7 @@ userSchema.methods.setPassword = function (password) {
   this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha512').toString('hex');    //Creates an encrypted hash
 };
 
-// Set encrypted paths for passwords
+// Set encrypted paths for approval code
 userSchema.methods.setApprovalCode = function () {
   this.approvalCode = crypto.randomBytes(24).toString('hex');   // Creates a random string for approval code
 };
@@ -44,7 +48,7 @@ userSchema.methods.generateJwt = function () {
     name: this.name,
     email: this.email,
     exp: parseInt(expiry.getTime() / 1000, 10),
-  }, process.env.JWT_SECRET);    //Set Production Environment Variables too eg. $ heroku config:set JWT_SECRET=thisIsSecret
+  }, process.env.JWT_SECRET);
 };
 
 mongoose.model('User', userSchema);

@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const User = require('mongoose').model('User');
 
 // Register handle
 module.exports = (req, res) => {
@@ -27,7 +26,7 @@ module.exports = (req, res) => {
         user.setPassword(password);
         user.setApprovalCode();
         user.save(err => {
-          if (err) { console.log(err) }
+          if (err) console.log(err);
           else {
             const token = user.generateJwt();
             return res.status(200).json({ token, approvalCode: user.approvalCode });

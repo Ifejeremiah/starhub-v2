@@ -1,5 +1,6 @@
 const Email = require('mongoose').model('Email');
 
+// Process Newsletter Email Subscriptions
 const processEmails = (req, res) => {
   const { email } = req.body;
   if (!email) {
@@ -17,7 +18,7 @@ const processEmails = (req, res) => {
           .then((user) => { res.status(201).json(user) })
           .catch(err => console.log(err));
       }
-    });
+    }).catch(err => console.log(err));
 }
 
 module.exports = {
