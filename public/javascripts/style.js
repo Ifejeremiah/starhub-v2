@@ -42,7 +42,7 @@ $(function () {
 
   // Animation for countdown
   const countdown = document.querySelector(".countdown h1");
-  const countDownDate = new Date("Dec 12, 2021 01:00:00").getTime();
+  const countDownDate = new Date("Dec 19, 2021 01:00:00").getTime();
 
   // Update the count down every 1 second
   const x = setInterval(function () {

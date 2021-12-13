@@ -10,28 +10,28 @@ const auth = require('../config/auth');
 
 
 // Register for Admin page
-router.post('/admin/register', register)
+router.post('/register', register)
 
 // Login to Admin Page
-router.post('/admin/login', login)
+router.post('/login', login)
 
 // Get All Admin Users
-router.get('/admin/users', auth, getAllAdminUsers);
+router.get('/users', auth, getAllAdminUsers);
 
 // Get an Admin User
-router.get('/admin/users/:userId', auth, getAdminUser);
+router.get('/users/:userId', auth, getAdminUser);
 
 // Update Approval Code
-router.put('/admin/users/:userId/update/approvalcode', auth, updateApprovalCode);
+router.put('/users/update/approvalcode', auth, updateApprovalCode);
 
 // Update Password
-router.put('/admin/users/:userId/update/password', auth, updatePassword);
+router.put('/users/update/:userId/password', auth, updatePassword);
 
 // Get All Newsletter Subscribers
-router.get('/admin/email/subscribers', auth, getAllSubscribedEmails);
+router.get('/email/:userId/subscribers', auth, getAllSubscribedEmails);
 
 // Get a Newsletter Subscriber
-router.get('/admin/email/subscribers/:emailId', auth, getASubscribedEmail);
+router.get('/email/:userId/subscribers/:emailId', auth, getASubscribedEmail);
 
 // Process Newsletter Email Subscriptions
 router.post('/subscribe', processEmails);

@@ -4,12 +4,12 @@ const Email = require('mongoose').model('Email');
 const processEmails = (req, res) => {
   const { email } = req.body;
   if (!email) {
-    return res.status(400).json({ error: 'Email is required for subscriptions' });
+    return res.status(400).json({ error: 'email is required for subscriptions' });
   }
   Email.findOne({ email })
     .then((user) => {
       if (user) {
-        return res.status(400).json({ error: 'Email is already registered' });
+        return res.status(400).json({ error: 'email is already registered' });
       } else {
         // Create a new instance of database model
         const user = new Email()

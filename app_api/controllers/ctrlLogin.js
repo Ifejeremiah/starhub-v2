@@ -4,7 +4,7 @@ const passport = require('passport');
 module.exports = (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).json({ error: 'Please fill all fields today' });
+    return res.status(401).json({ error: 'please fill all fields' });
   }
   passport.authenticate('local', (err, user, info) => {
     let token;

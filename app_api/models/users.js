@@ -13,7 +13,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  approvalCode: String,
+  role: {
+    type: Number,
+    required: true,
+  },
+  approveCode: String,
   dateRegistered: {
     type: Date,
     'default': Date.now
@@ -30,8 +34,21 @@ userSchema.methods.setPassword = function (password) {
 
 // Set encrypted paths for approval code
 userSchema.methods.setApprovalCode = function () {
-  this.approvalCode = crypto.randomBytes(24).toString('hex');   // Creates a random string for approval code
+  this.approveCode = crypto.randomBytes(48).toString('hex');   // Creates a random string for approval code
 };
+
+// Set Roles for Users
+userSchema.methods.setRole = function (role) {
+  let userType;
+  if (role.toLowerCase() === 'superadmin') {
+    userType = 110111;
+  } else if (role.toLowerCase() === 'admin') {
+    userType = 110011;
+  } else {
+    userType = 110001;
+  }
+  this.role = userType;
+}
 
 // Validate submitted password
 userSchema.methods.validPassword = function (password) {

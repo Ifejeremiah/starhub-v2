@@ -6,7 +6,7 @@ const emailSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  date: {
+  dateSubscribed: {
     type: Date,
     'default': Date.now
   }
