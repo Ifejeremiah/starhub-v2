@@ -5,9 +5,9 @@ const verifyAdmin = (req, res, callback) => {
   const { _id } = req.payload;
   User.findOne({ _id })
     .then(user => {
-      if (!user || user.role !== 110111) {
-        return res.status(401).json({ error: 'sorry, you can not access this resource' });
-      } if (user.role !== 110011) {
+      if (!user) {
+        return res.status(401).json({ error: 'Invalid User' });
+      } else if ((user.role !== 110111) || (user.role !== 110111)) {
         return res.status(401).json({ error: 'sorry, you can not access this resource' });
       } else {
         callback();
