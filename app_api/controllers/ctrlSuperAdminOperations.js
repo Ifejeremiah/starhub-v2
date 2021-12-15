@@ -1,16 +1,13 @@
 const User = require('mongoose').model('User');
 
 const verifySuperAdmin = (req, res, callback) => {
-  const { approveCode } = req.body;
-  if (!approveCode) {
-    return res.status(401).json({ error: 'sorry, you can not access this resource' });
-  }
-  User.findOne({ approveCode })
+  const { _id } = req.payload;
+  User.findOne({ _id })
     .then(user => {
-      if (user) {
-        callback();
+      if (!user || user.role !== 110111) {
+        return res.status(401).json({ error: 'sorry, you can not access this resource' });
       } else {
-        return res.status(400).json({ msg: 'incorrect approval code' });
+        callback();
       }
     }).catch(err => console.log(err));
 }
@@ -67,35 +64,17 @@ const getAdminUser = (req, res) => {
   });
 }
 
-// Change On Site Approval Code 
-const updateApprovalCode = (req, res) => {
-  const { approveCode } = req.body;
-  verifySuperAdmin(req, res, () => {
-    User.findOne({ approveCode })
-      .then(user => {
-        user.setApprovalCode();
-        user.save((err, updateduser) => {
-          if (err) console.log(err);
-          else {
-            return res.status(201).json({msg: `approval code updated to: ${updateduser.approveCode}`});
-          }
-        });
-      }).catch(err => console.log(err));
-
-  });
-}
-
 // Change Password
 const updatePassword = (req, res) => {
   const { password, password2 } = req.body;
-  if (!password) {
-    return res.status(400).json({ msg: 'a password to update is required' });
-  } else if (password !== password2) {
-    return res.status(400).json({ error: 'passwords do not match' });
-  } else if (req.params.userId.length !== 24) {
-    return res.status(400).json({ error: 'invalid user id' });
-  }
   verifySuperAdmin(req, res, () => {
+    if (!password) {
+      return res.status(400).json({ msg: 'a password to update is required' });
+    } else if (password !== password2) {
+      return res.status(400).json({ error: 'passwords do not match' });
+    } else if (req.params.userId.length !== 24) {
+      return res.status(400).json({ error: 'invalid user id' });
+    }
     User.findById(req.params.userId)
       .then(user => {
         if (!user) {
@@ -115,6 +94,5 @@ const updatePassword = (req, res) => {
 module.exports = {
   getAllAdminUsers,
   getAdminUser,
-  updateApprovalCode,
   updatePassword,
 }

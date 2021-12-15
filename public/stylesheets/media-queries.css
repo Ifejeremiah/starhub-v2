@@ -27,7 +27,6 @@
   /* Navbar Toggle Button */
   .con-navbar .con-toggle {
     display: inline-block;
-    border: 1px solid rgb(185, 184, 184);
     padding: 2px;
     border-radius: 0.25rem;
     cursor: pointer;

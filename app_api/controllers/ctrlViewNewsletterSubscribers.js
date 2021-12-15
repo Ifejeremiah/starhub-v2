@@ -1,21 +1,16 @@
 const User = require('mongoose').model('User');
 const Email = require('mongoose').model('Email');
 
-
 const verifyAdmin = (req, res, callback) => {
-  const { userId } = req.params;
-  if (userId.length !== 24) {
-    return res.status(400).json({ error: 'invalid user id' });
-  }
-  User.findById(userId)
+  const { _id } = req.payload;
+  User.findOne({ _id })
     .then(user => {
-      if (!user) {
-        return res.status(400).json({ error: 'invalid user id' });
-      }
-      if (user.role === 110111 || user.role === 110011) {
-        callback();
-      } else {
+      if (!user || user.role !== 110111) {
         return res.status(401).json({ error: 'sorry, you can not access this resource' });
+      } if (user.role !== 110011) {
+        return res.status(401).json({ error: 'sorry, you can not access this resource' });
+      } else {
+        callback();
       }
     }).catch(err => console.log(err));
 }

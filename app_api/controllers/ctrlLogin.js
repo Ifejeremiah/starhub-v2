@@ -14,7 +14,8 @@ module.exports = (req, res) => {
       token = user.generateJwt();
       return res.status(200).json({ token });
     } else {
-      return res.status(401).json(info);
+      // send Forbidden (403)
+      return res.status(403).json(info);
     }
   })(req, res);
 };

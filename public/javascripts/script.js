@@ -74,16 +74,19 @@ $(function () {
   const $conServerMsg = $('.subscribe form .server-msg');
   const $serverMsg = $('form .server-msg p');
   const $form = $('.subscribe form');
+  const $formElement = $('.con-subscribe form .form-element');
 
   $form.on('submit', function (evt) {
     evt.preventDefault();
     if (!$input.val()) {
       $conServerMsg.removeClass('success-msg');
       $conServerMsg.addClass('error-msg');
+      $formElement.addClass('error');
       $serverMsg.text('Email is required to subscribe');
     }
     $input.on('focus', function () {
       $conServerMsg.removeClass('error-msg');
+      $formElement.removeClass('error');
       $conServerMsg.removeClass('success-msg');
     });
     if ($input.val()) {
@@ -93,6 +96,7 @@ $(function () {
         data: $form.serialize(),
         success: function () {
           $conServerMsg.removeClass('error-msg');
+          $formElement.removeClass('error');
           $conServerMsg.addClass('success-msg');
           $serverMsg.text('You have just registered for our weekly newsletter');
           $input.val('');
@@ -100,6 +104,7 @@ $(function () {
         error: function () {
           $conServerMsg.removeClass('success-msg');
           $conServerMsg.addClass('error-msg');
+          $formElement.addClass('error');
           $serverMsg.text('That email is already registered');
         }
       })

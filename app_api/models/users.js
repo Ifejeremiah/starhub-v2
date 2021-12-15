@@ -17,7 +17,6 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  approveCode: String,
   dateRegistered: {
     type: Date,
     'default': Date.now
@@ -30,11 +29,6 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.setPassword = function (password) {
   this.salt = crypto.randomBytes(16).toString('hex');   // Creates a random string for salt
   this.hash = crypto.pbkdf2Sync(password, this.salt, 10000, 64, 'sha512').toString('hex');    //Creates an encrypted hash
-};
-
-// Set encrypted paths for approval code
-userSchema.methods.setApprovalCode = function () {
-  this.approveCode = crypto.randomBytes(48).toString('hex');   // Creates a random string for approval code
 };
 
 // Set Roles for Users
@@ -58,14 +52,11 @@ userSchema.methods.validPassword = function (password) {
 
 // Generate JSON Web Token
 userSchema.methods.generateJwt = function () {
-  const expiry = new Date();
-  expiry.setDate(expiry.getDate() + 1);
   return jwt.sign({
     _id: this._id,
     name: this.name,
     email: this.email,
-    exp: parseInt(expiry.getTime() / 1000, 10),
-  }, process.env.JWT_SECRET);
+  }, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
 
 mongoose.model('User', userSchema);

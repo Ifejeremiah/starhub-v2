@@ -2,7 +2,7 @@ const User = require('mongoose').model('User');
 
 // Register handle
 module.exports = (req, res) => {
-  const { name, email, password, password2, approveCode, userRole } = req.body;
+  const { name, email, password, password2, userRole } = req.body;
 
   // Check all fields
   if (!name || !email || !password || !password2) {
@@ -24,13 +24,12 @@ module.exports = (req, res) => {
       if (!user.length) {
         const user = new User({ name, email, });
         user.setPassword(password);
-        user.setApprovalCode();
         user.setRole('sUpErAdmiN');
         user.save(err => {
           if (err) console.log(err);
           else {
             const token = user.generateJwt();
-            return res.status(201).json({ token, approvalCode: user.approveCode });
+            return res.status(201).json({ token });
           }
         });
       } else {
@@ -40,13 +39,11 @@ module.exports = (req, res) => {
               return res.status(400).json({ error: 'email is already registered, try again, with a new email' });
             } else if (!userRole) {
               return res.status(400).json({ error: 'please identify user role' });
-            } else if (!approveCode) {
-              return res.status(401).json({ error: 'sorry, you can not access this resource' });
             } else {
-              User.findOne({ approveCode })
+              User.findOne({ _id: req.payload._id })
                 .then((user) => {
-                  if (!user) {
-                    return res.status(400).json({ error: 'incorrect approval code' });
+                  if (!user || user.role !== 110111) {
+                    return res.status(401).json({ error: 'sorry, you can not access this resource' });
                   } else {
                     const user = new User({ name, email });
                     user.setPassword(password);

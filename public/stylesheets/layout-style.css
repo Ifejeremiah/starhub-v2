@@ -19,6 +19,7 @@
 :root {
   --primary-color: rgb(232, 253, 253);
   --secondary-color: #1c3fa8;
+  --blue-color: rgb(52, 35, 149);
   --show-overlay-color: rgb(255, 115, 0);
   --dark-btn-hover-color: rgb(41, 41, 41);
   --linear-01: #cffde1;
@@ -232,6 +233,10 @@ img {
   display: block;
   background: rgb(235, 63, 63);
   width: 300px;
+}
+
+.con-subscribe form .form-element.error {
+  border-color: red;
 }
 
 .con-subscribe form .server-msg.success-msg {
