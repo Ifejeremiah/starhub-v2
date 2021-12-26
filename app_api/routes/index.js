@@ -13,7 +13,7 @@ const auth = require('../config/auth');
 router.post('/login', login)
 
 // Register for Admin page
-router.post('/register', register)
+router.post('/register', auth, register)
 
 // Get All Admin Users
 router.get('/users', auth, getAllAdminUsers);

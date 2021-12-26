@@ -1,0 +1,23 @@
+<div class="con-card">
+  <div class="card">
+    <div class="header flex flx-spc-btw">
+      <div class="x"></div>
+      <div class="img">
+        <img src="../../../assets/images/starhub-logo.png" alt="The StarHub">
+      </div>
+      <div class="y"></div>
+    </div>
+    <div class="error" *ngIf="formError">{{formError}}</div>
+    <form (ngSubmit)="onLoginSubmit()">
+      <div class="form-elements">
+        <input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email">
+      </div>
+      <div class="form-elements">
+        <input type="password" placeholder="Password" [(ngModel)]="credentials.password" name="password">
+      </div>
+      <div class="form-elements">
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

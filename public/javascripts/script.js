@@ -11,7 +11,7 @@ $(function () {
     $menu.toggleClass('active');
   });
 
-  // Animation For Navigation Bar
+  // For Navigation Bar
   const $window = $(window);
   const $navbar = $('.con-navbar');
 
@@ -23,7 +23,7 @@ $(function () {
     }
   });
 
-  // Animation For Back To Top Button On Scroll
+  //  For Back To Top Button On Scroll
   const $btn = $('.con-top-btn');
 
   $window.on('scroll', function () {
@@ -34,15 +34,28 @@ $(function () {
     }
   });
 
-  // Animation For Back To Top Button
+  // For Back To Top Button
   $btn.on('click', function () {
     $window.scrollTop(0);
   });
 
 
-  // Animation for countdown
+  // For Countdown
+
+  // Process Every Future Sundays
+  const _now = new Date();
+  const _sunday = new Date();
+  _sunday.setDate(_now.getDate() - _now.getDay()); // Make Sunday
+  _sunday.setHours(9); // Set 9am
+  _sunday.setMinutes(0);
+  _sunday.setSeconds(0);
+  _sunday.setMilliseconds(0);
+  if (_sunday < _now) _sunday.setDate(_sunday.getDate() + 7); // Make sure it's a future sunday
+  millisecondsLeft = _sunday - _now;
+
+
   const countdown = document.querySelector(".countdown h1");
-  const countDownDate = new Date("Dec 19, 2021 01:00:00").getTime();
+  const countDownDate = _sunday.getTime();
 
   // Update the count down every 1 second
   const x = setInterval(function () {

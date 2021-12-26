@@ -22,13 +22,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Route to Admin Panel
+app.use('/login', express.static(path.join(__dirname, 'app_public', 'first-dev')));
+app.use('/login', (req, res) => { res.sendFile(path.join(__dirname, 'app_public', 'first-dev', 'index.html')) });
+
 // Passport's middleware
 app.use(passport.initialize());
 
+// Allowing CORS requests for development purposes only
+app.use('/api', (req, res, next) => {
+  if (req.app.get('env') === 'development') {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  } next();
+});
+
 // Routes
 app.use('/', mainRouter);
-// API Route
-app.use('/api', apiRouter);
+app.use('/api', apiRouter); // API Route
 
 // Catch UnAuthorized Errors
 app.use(function (err, req, res, next) {
@@ -49,8 +60,8 @@ app.use(function (req, res, next) {
 // error handler
 app.use(function (err, req, res, next) {
   // Send an error log to console if in development mode
-  if (req.app.get('env')) console.log(err);
-  res.status(500).sendFile('public/templates/error.html', { root: __dirname })
+  if (req.app.get('env') === 'development') console.log(err);
+  res.status(500).sendFile(path.join(__dirname, 'public', 'templates', 'error.html'));
 });
 
 module.exports = app;
