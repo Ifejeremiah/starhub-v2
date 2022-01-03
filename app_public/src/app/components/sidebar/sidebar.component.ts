@@ -16,7 +16,12 @@ export class SidebarComponent implements OnInit {
 
   public isSuperAdmin(): boolean {
     const { code } = this.authenticationService.getCurrentUser()
-    return code === 110111 ? true : false;
+    return code !== 110111 ? false : true;
+  }
+
+  public isSuperAdminOrAdmin(): boolean {
+    const { code } = this.authenticationService.getCurrentUser()
+    return code === 110111 || code === 110011 ? true : false;
   }
 
 }

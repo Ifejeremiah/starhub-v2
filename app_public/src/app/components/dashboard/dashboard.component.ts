@@ -11,11 +11,18 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.goToDashboardHome();
+    this.loadDashboards();
+
+    if (!localStorage.getItem('foo')) {
+      localStorage.setItem('foo', 'no reload');
+      location.reload();
+    } else {
+      localStorage.removeItem('foo');
+    }
   }
 
-  private goToDashboardHome() :void{
-    this.router.navigateByUrl('/dashboard/home');
+  private loadDashboards(): void {
+    this.router.navigate(['dashboard', 'overview']);
   }
 
 }

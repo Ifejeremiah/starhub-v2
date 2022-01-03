@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3>All Newsletter Subscribers</h3>
+        <div class="msg msg-success" *ngIf="message">{{message}}</div>
+      </div>
+      <div class="box-body table-responsive" *ngIf="subscribers">
+        <table class="table table-hover">
+          <tbody><tr>
+            <th>Email</th>
+            <th>Subscribed On</th>
+          </tr>
+          <tr *ngFor="let subscriber of subscribers | mostRecentFirst">
+            <td>{{subscriber.email}}</td>
+            <td>{{subscriber.dateSubscribed | date:'medium'}}</td>
+            <td (click)="deleteSubscriberEmail(subscriber.email)"><i class="fas fa-trash-alt" data-widget="remove"></i></td>
+          </tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</div>

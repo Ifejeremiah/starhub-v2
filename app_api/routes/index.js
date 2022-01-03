@@ -1,19 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllAdminUsers, getAdminUser, updatePassword } = require('../controllers/ctrlSuperAdminOperations');
-const { getAllSubscribedEmails, getASubscribedEmail } = require('../controllers/ctrlViewNewsletterSubscribers');
+const { getAllAdminUsers, getAdminUser, createAdminUser, updateAdminUser, deleteAdminUser } = require('../controllers/ctrlSuperAdminOperations');
+const { getAllSubscribedEmails, getASubscribedEmail, deleteASubscribedEmail } = require('../controllers/ctrlViewNewsletterSubscribers');
 const { processEmails } = require('../controllers/ctrlProcessEmail');
-const register = require('../controllers/ctrlRegister');
 const login = require('../controllers/ctrlLogin');
 const auth = require('../config/auth');
 
 
-// Login to Admin Page
+// Login to Admin Dashboard
 router.post('/login', login)
-
-// Register for Admin page
-router.post('/register', auth, register)
 
 // Get All Admin Users
 router.get('/users', auth, getAllAdminUsers);
@@ -21,17 +17,21 @@ router.get('/users', auth, getAllAdminUsers);
 // Get an Admin User
 router.get('/users/:userId', auth, getAdminUser);
 
-// Update Password
-router.put('/users/:userId/update/password', auth, updatePassword);
+// Create New User
+router.post('/users', auth, createAdminUser);
+
+router.route('/users/:userId')
+  .put(auth, updateAdminUser)   // Update User
+  .delete(auth, deleteAdminUser);   // Delete User
 
 // Get All Newsletter Subscribers
 router.get('/email/subscribers', auth, getAllSubscribedEmails);
 
-// Get a Newsletter Subscriber
-router.get('/email/subscribers/:emailId', auth, getASubscribedEmail);
+router.route('/email/subscribers/:emailId')
+  .get(auth, getASubscribedEmail) // Get a Newsletter Subscriber
+  .delete(auth, deleteASubscribedEmail); // Delete a Newsletter Subscriber
 
 // Process Newsletter Email Subscriptions
 router.post('/subscribe', processEmails);
-
 
 module.exports = router;

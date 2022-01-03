@@ -1,0 +1,17 @@
+.box {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.msg {
+  padding: 10px 18px;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.msg.error-msg {
+  background: rgb(241, 93, 93);
+  color: #fff;
+}

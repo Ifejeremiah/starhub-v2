@@ -7,7 +7,7 @@ const verifyAdmin = (req, res, callback) => {
     .then(user => {
       if (!user) {
         return res.status(401).json({ error: 'Invalid User' });
-      } else if ((user.role !== 110111) || (user.role !== 110111)) {
+      } else if (user.role === 110001) {
         return res.status(401).json({ error: 'sorry, you can not access this resource' });
       } else {
         callback();
@@ -23,8 +23,7 @@ const getAllSubscribedEmails = (req, res) => {
         if (!emails.length) {
           return res.status(404).json({ msg: 'there are no subscribed emails at the moment' });
         } else {
-          const subscribedEmails = emails.map(email => { return email.email });
-          return res.status(200).json(subscribedEmails);
+          return res.status(200).json(emails);
         }
       }).catch(err => console.log(err));
   });
@@ -32,18 +31,39 @@ const getAllSubscribedEmails = (req, res) => {
 
 // Get a Newsletter Subscriber
 const getASubscribedEmail = (req, res) => {
-  Email.findOne({ email: req.params.emailId })
-    .then((user) => {
-      if (!user) {
-        return res.status(404).json({ error: 'could not find email address' });
-      } else {
-        return res.status(200).json(user);
-      }
-    }).catch(err => console.log(err));
+  verifyAdmin(req, res, () => {
+    Email.findOne({ email: req.params.emailId })
+      .then((user) => {
+        if (!user) {
+          return res.status(404).json({ error: 'could not find email address' });
+        } else {
+          return res.status(200).json(user);
+        }
+      }).catch(err => console.log(err));
+  });
 }
 
+const deleteASubscribedEmail = (req, res) => {
+  verifyAdmin(req, res, () => {
+    const { emailId } = req.params;
+    if (!emailId) {
+      return res.status(400).json({ error: 'email is required' });
+    } Email.findOne({ email: emailId })
+      .then(user => {
+        if (user) {
+          Email.findByIdAndDelete(user._id)
+            .then(() => {
+              return res.status(200).json({ msg: 'subscribed email deleted' });
+            }).catch(err => console.log(err));
+        } else {
+          return res.status(404).json({ error: 'could not find subscriber email' });
+        }
+      }).catch(err => console.log(err));
+  })
+}
 
 module.exports = {
   getAllSubscribedEmails,
   getASubscribedEmail,
+  deleteASubscribedEmail
 }

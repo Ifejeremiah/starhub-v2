@@ -5,9 +5,9 @@ const logger = require('morgan');
 const passport = require('passport');
 require('dotenv').config();
 
-require('./app_api/models') // Link in database
+require('./app_api/models') // Link-in database
 require('./app_api/config/passport');  // Passport configuration
-const mainRouter = require('./app_server/routes/app-routes');   //Main Routes
+const mainRouter = require('./app_server/routes/app-routes');   //Server Routes
 const apiRouter = require('./app_api/routes');   //API Routes
 
 const app = express();
@@ -23,8 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to Admin Panel
-app.use('/login', express.static(path.join(__dirname, 'app_public', 'first-dev')));
-app.use('/login', (req, res) => { res.sendFile(path.join(__dirname, 'app_public', 'first-dev', 'index.html')) });
+app.use('/login', express.static(path.join(__dirname, 'app_public', 'second-build')));
+app.use('/login', (req, res) => { res.sendFile(path.join(__dirname, 'app_public', 'second-build', 'index.html')) });
 
 // Passport's middleware
 app.use(passport.initialize());
@@ -33,6 +33,7 @@ app.use(passport.initialize());
 app.use('/api', (req, res, next) => {
   if (req.app.get('env') === 'development') {
     res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   } next();
 });

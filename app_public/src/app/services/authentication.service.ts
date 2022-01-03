@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 
-import { User } from '../classes/user';
+import { LoginCredentials } from '../classes/userLoginCredentials';
 import { Authresponse } from '../classes/authresponse';
 import { BROWSER_STORAGE } from '../classes/storage';
 import { StarhubDataService } from './starhub-data.service';
@@ -21,7 +21,7 @@ export class AuthenticationService {
     this.storage.setItem('starhub-token', token);
   }
 
-  public login(user: User): Promise<any> {
+  public login(user: LoginCredentials): Promise<any> {
     return this.starhubDataService.login(user)
       .then((authResponse: Authresponse) => this.saveToken(authResponse.token));
   }

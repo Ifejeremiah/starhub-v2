@@ -1,0 +1,17 @@
+.msg {
+  padding: 10px 18px;
+  border-radius: 0.25rem;
+  font-size: 1.5rem;
+  max-width: calc(100% - 20px);
+  margin: 0 auto;
+  color: #fff;
+}
+
+.msg-success {
+  background: rgb(93, 128, 241);
+}
+
+.fa-trash-alt {
+  color: red;
+  cursor: pointer;
+}

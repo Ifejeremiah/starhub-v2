@@ -8,7 +8,7 @@
       <div class="y"></div>
     </div>
     <div class="error" *ngIf="formError">{{formError}}</div>
-    <form (ngSubmit)="onLoginSubmit()">
+    <form (submit)="onLoginSubmit()">
       <div class="form-elements">
         <input type="email" placeholder="Email" [(ngModel)]="credentials.email" name="email">
       </div>

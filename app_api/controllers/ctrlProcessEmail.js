@@ -12,10 +12,11 @@ const processEmails = (req, res) => {
       if (user) {
         return res.status(400).json({ error: 'email is already registered' });
       } else {
-        // Send confirmation email 
+        // Send confirmation email to subscriber email
         emailService.send(email,
           'Subscriptions for Weekly Newsletters',
-          `<h2>Yaay, you have just succesfully subscribed to get our weekly newsletters, enjoy!</h2>`);
+          `<h2>Yaay, you have just succesfully subscribed to get our weekly newsletters, enjoy!</h2>`
+        );
 
         // Create a new instance of database model
         const user = new Email()
