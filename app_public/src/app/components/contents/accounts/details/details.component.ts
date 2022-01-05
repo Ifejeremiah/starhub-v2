@@ -10,7 +10,7 @@ import { StarhubDataService, Users } from 'src/app/services/starhub-data.service
 })
 export class DetailsComponent implements OnInit {
 
-  @Input() content: Users;
+  @Input() public content: Users;
 
   constructor(private starhubDataService: StarhubDataService,
     private router: Router) { }
