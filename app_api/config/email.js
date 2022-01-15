@@ -26,7 +26,7 @@ module.exports = () => {
 
     emailError: async (message, filename, exception) => {
       const body = `
-      <h1>Starhub Site Travel Error</h1>
+      <h1>Starhub Site Server Error</h1>
       message: ${message}`;
       if (filename) body += `filename: ${filename}`;
       if (exception) body += `exception: ${exception}`;

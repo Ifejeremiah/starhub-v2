@@ -11,6 +11,7 @@ import { CreateComponent } from '../components/contents/accounts/create/create.c
 import { ListsComponent } from '../components/contents/accounts/lists/lists.component';
 import { DetailsParentComponent } from '../components/contents/accounts/details-parent/details-parent.component';
 import { UpdateComponent } from '../components/contents/accounts/update/update.component';
+import { ActivityComponent } from '../components/contents/activity/activity.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -38,6 +39,10 @@ const routes: Routes = [
       {
         path: 'accounts/:userid/update',
         component: UpdateComponent
+      },
+      {
+        path: 'activity',
+        component: ActivityComponent
       }
     ]
   },

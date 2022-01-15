@@ -1,21 +1,17 @@
 /* Styling For Homepage */
 
+:root {
+  --background-color: rgb(232, 253, 253); 
+}
+
+/* Navigation */
+.con-navbar {
+  background: var(--background-color);
+}
+
 /* Section A */
 .con-section-a {
-  padding-top: 80px;
-  position: relative;
-  width: 100%;
-  background: var(--primary-color);
-}
-
-.con-section-a .section-a {
-  margin: 0 auto;
-}
-
-.con-section-a .section-a .header p.margin-02 {
-  width: 610px;
-  text-align: center;
-  margin: 14px 0; 
+  background: var(--background-color);
 }
 
 .con-img-background {

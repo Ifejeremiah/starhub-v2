@@ -4,6 +4,7 @@ const router = express.Router();
 const { getAllAdminUsers, getAdminUser, createAdminUser, updateAdminUser, deleteAdminUser } = require('../controllers/ctrlSuperAdminOperations');
 const { getAllSubscribedEmails, getASubscribedEmail, deleteASubscribedEmail } = require('../controllers/ctrlViewNewsletterSubscribers');
 const { processEmails } = require('../controllers/ctrlProcessEmail');
+const { getActivity, getActivityOfAllUsers } = require('../controllers/ctrlActivityLog');
 const login = require('../controllers/ctrlLogin');
 const auth = require('../config/auth');
 
@@ -33,5 +34,11 @@ router.route('/email/subscribers/:emailId')
 
 // Process Newsletter Email Subscriptions
 router.post('/subscribe', processEmails);
+
+// Get All User Activity
+router.get('/activity/all', auth, getActivityOfAllUsers);
+
+// Get User Activity
+router.get('/activity', auth, getActivity);
 
 module.exports = router;

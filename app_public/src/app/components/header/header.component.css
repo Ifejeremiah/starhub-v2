@@ -1,3 +1,7 @@
 .main-header .navbar {
   padding: 0 20px;
 }
+
+.navbar-custom-menu {
+  cursor: pointer;
+}

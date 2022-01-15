@@ -1,0 +1,57 @@
+extends layouts/layout
+
+block head 
+  link(rel='stylesheet', href='/stylesheets/connect.style.css')
+
+block content
+
+  //- Section A
+  .con-section-a
+    .section-a
+      .header.flex.flx-dir
+        h1 Connect With Us
+        p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, asperiores ut adipisci doloribus, nisi, laborum voluptatibus placeat labore doloremque possimus.
+
+  //- Section B
+  .con-section
+    .section-b.grid.grid-02.sections-07
+      .con-img.flex
+        img(src="images/welcome to starhub 1.png", alt="")
+      form(action="").form
+        .form-items.flex 
+          .form-item
+            input(type="text" placeholder="Name")
+          .form-item 
+            input(type="email" placeholder="Email Address")
+        .form-items.flex 
+          .form-item
+            input(type="text" placeholder="Subject")
+          .form-item 
+            input(type="text" placeholder="Reason")
+        .form-items.flex 
+          .form-item
+            input(type="text" placeholder="Description")
+        .form-items 
+          button(type="submit").flex 
+            h3 Submit
+            .img
+              img(src="images/btn-arrow.png")
+        
+  //- Section C
+  .con-section
+    .section-c.grid.grid-02.sections-07
+      .header.flex.flx-dir.flx-strt
+        h1 Connect us Sharply
+        ul 
+          li 
+            i.icon 
+            h3 2 Ziatech Road, Oregun, Ikeja, Lagos
+          li 
+            i.icon 
+            h3 info@thestarhub.org
+          li 
+            i.icon 
+            h3 08000000000
+
+      .con-img.flex
+        img(src="images/map 1.png", alt="")

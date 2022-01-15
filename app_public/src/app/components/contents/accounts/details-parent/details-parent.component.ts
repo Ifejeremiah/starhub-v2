@@ -14,6 +14,8 @@ export class DetailsParentComponent implements OnInit {
     private starhubDataService: StarhubDataService
   ) { }
 
+  public process: string = 'Processing...';
+
   public userDetails: Users;
 
   ngOnInit(): void {
@@ -21,6 +23,7 @@ export class DetailsParentComponent implements OnInit {
       let id = params.get('userid');
       this.starhubDataService.getUserById(id).then(user => {
         this.userDetails = user;
+        this.process = '';
       });
     });
   }

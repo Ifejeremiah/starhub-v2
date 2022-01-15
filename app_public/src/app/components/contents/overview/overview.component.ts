@@ -21,17 +21,17 @@ export class OverviewComponent implements OnInit {
   public greetUser(): string {
     function greet() {
       const hour = new Date().getHours();
-      if (hour < 12) {
-        return 'good morning';
+      if (hour >= 0 && hour < 12) {
+        return 'Good morning';
       } else if (hour >= 12 && hour < 16) {
-        return 'good afternoon';
+        return 'Good afternoon';
       } else if (hour >= 16 && hour < 22) {
-        return 'good evening';
-      } else if (hour >= 22 && hour < 23) {
-        return 'good night';
+        return 'Good evening';
+      } else if (hour >= 22 && hour <= 23) {
+        return 'Good night';
       }
     }
-    return `Hi, ${greet()} `;
+    return `${greet()}`;
   }
 
 }

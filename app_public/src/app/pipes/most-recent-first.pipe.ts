@@ -4,10 +4,24 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'mostRecentFirst'
 })
 export class MostRecentFirstPipe implements PipeTransform {
-  
-  private compare(a, b) {
-    const createdOnA = a.dateRegistered ? a.dateRegistered : a.dateSubscribed;
-    const createdOnB = b.dateRegistered ? b.dateRegistered : b.dateSubscribed;
+
+  private compare(a, b): number {
+
+    let createdOnA = a.dateRegistered ? a.dateRegistered : a.dateSubscribed;
+    let createdOnB = b.dateRegistered ? b.dateRegistered : b.dateSubscribed;
+
+    if (a.dateRegistered && b.dateRegistered) {
+      createdOnA = a.dateRegistered;
+      createdOnB = b.dateRegistered
+    }
+    if (a.dateSubscribed && b.dateSubscribed) {
+      createdOnA = a.dateSubscribed;
+      createdOnB = b.dateSubscribed
+    }
+    if (a.activityDate && a.activityDate) {
+      createdOnA = a.activityDate;
+      createdOnB = b.activityDate
+    }
 
     let comparison = 1;
     if (createdOnA > createdOnB) {

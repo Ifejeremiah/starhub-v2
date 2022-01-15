@@ -21,6 +21,17 @@ export class SubscribedEmails {
   dateSubscribed: string;
 }
 
+export class Activity {
+  activityText: string;
+  activityDate: string;
+}
+
+export class AllActivities {
+  accountName: string;
+  accountID: string;
+  accountRole: string;
+  activities: [Activity]
+}
 
 @Injectable({
   providedIn: 'root'
@@ -100,6 +111,7 @@ export class StarhubDataService {
   public getUserById(userId: string): Promise<Users> {
     return this.makeUserApiCall(userId, 'get', null);
   }
+
   public updateUserById(userId: string, updateData): Promise<Users> {
     return this.makeUserApiCall(userId, 'put', updateData);
   }
@@ -121,15 +133,33 @@ export class StarhubDataService {
     const url = `${this.apiBase}/email/subscribers/${email}`;
     return this.http.get(url, this.sendTokenInHeader())
       .toPromise()
-      .then(email => email as SubscribedEmails);
+      .then(email => email as SubscribedEmails)
+      .catch(this.handleError);
   }
 
   public deleteASubscribedEmail(email: string): any {
     const url = `${this.apiBase}/email/subscribers/${email}`;
     return this.http.delete(url, this.sendTokenInHeader())
       .toPromise()
-      .then(msg => msg);
+      .then(msg => msg)
+      .catch(this.handleError);
   }
 
+  public getUserActivity(): Promise<Activity[]> {
+    const url = `${this.apiBase}/activity`;
+    return this.http.get(url, this.sendTokenInHeader())
+      .toPromise()
+      .then(msg => msg as Activity[])
+      .catch(this.handleError);
+  }
+
+  public getAllUserActivity(): Promise<AllActivities[]> {
+    const url = `${this.apiBase}/activity/all`;
+    return this.http.get(url, this.sendTokenInHeader())
+      .toPromise()
+      .then(msg => msg as AllActivities[])
+      .catch(this.handleError);
+  }
+  
 }
 

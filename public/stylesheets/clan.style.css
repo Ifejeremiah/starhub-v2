@@ -1,0 +1,18 @@
+:root {
+  --background-color: rgb(248, 240, 233); 
+}
+
+/* Navigation */
+.con-navbar {
+  background: var(--background-color);
+}
+
+/* Section A */
+.con-section-a {
+  background: var(--background-color);
+  padding-bottom: 120px;
+}
+
+.con-section.first {
+  margin: 80px 0 0 0;
+}

@@ -50,9 +50,16 @@ const deleteASubscribedEmail = (req, res) => {
       return res.status(400).json({ error: 'email is required' });
     } Email.findOne({ email: emailId })
       .then(user => {
+        let subscribedEmail = user.email;
         if (user) {
           Email.findByIdAndDelete(user._id)
             .then(() => {
+              User.findById(req.payload._id)
+                .then((user) => {
+                  user.setActivity(`deleted newsletter subscriber, ${subscribedEmail}`);
+                  user.save();
+                }).catch(err => console.log(err));
+
               return res.status(200).json({ msg: 'subscribed email deleted' });
             }).catch(err => console.log(err));
         } else {

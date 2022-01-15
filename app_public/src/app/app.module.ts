@@ -20,6 +20,7 @@ import { MostRecentFirstPipe } from './pipes/most-recent-first.pipe';
 import { DetailsParentComponent } from './components/contents/accounts/details-parent/details-parent.component';
 import { DetailsComponent } from './components/contents/accounts/details/details.component';
 import { UpdateComponent } from './components/contents/accounts/update/update.component';
+import { ActivityComponent } from './components/contents/activity/activity.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { UpdateComponent } from './components/contents/accounts/update/update.co
     DetailsParentComponent,
     DetailsComponent,
     UpdateComponent,
+    ActivityComponent,
   ],
   imports: [
     BrowserModule,

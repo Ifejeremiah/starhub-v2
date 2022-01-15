@@ -15,11 +15,28 @@ export class ListsComponent implements OnInit {
     this.showAllUsers();
   }
 
+  public message: string = 'Processing...'
+
   public users: any[];
 
   private showAllUsers(): void {
     this.starhubDataService.getAllUsers()
-      .then(users => this.users = users);
+      .then(users => {
+        this.users = users;
+        this.message = '';
+      });
+  }
+
+  public roleClass(role) {
+    let msg;
+    if (role === 'super admin') {
+      msg = 'label-success'
+    } else if (role === 'admin') {
+      msg = 'label-primary'
+    } else if (role === 'user') {
+      msg = 'label-warning'
+    }
+    return msg;
   }
 
 }

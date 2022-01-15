@@ -8,13 +8,14 @@ html
     link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
     link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
     link(rel='stylesheet', href='/stylesheets/layout.style.css')
-    link(rel='stylesheet', href='/stylesheets/homepage.style.css')
+    block head
     link(rel='stylesheet', href='/stylesheets/media.queries.css')
+
   body
     //- Navigation
     .con-navbar 
       .navbar.container.flex.flx-spc-btw 
-        a(href="/").left-side.flex.flx-spc-btw
+        .left-side.flex.flx-spc-btw
           .nav-brand-name
             h2 the starhub
           .nav-brand-logo.flex
@@ -22,20 +23,20 @@ html
         .right-side
           .links 
             ul.flex.flx-spc-btw
-              a(href="/")  
-                li home
-              a(href="/")  
-                li blog
-              a(href="/")  
-                li clan 
-              a(href="/")  
-                li givings
-              a(href="/")  
-                li serve and support
-              a(href="/")  
-                li contact
-              a(href="/")  
-                li about
+              a(href="/")
+                li#home home
+              a(href="/about")
+                li#about about us
+              a(href="/connect")
+                li#connect connect
+              a(href="/serve")
+                li#serve serve and support
+              a(href="/clan")
+                li#clan clan
+              a(href="")
+                li#media media
+              a(href="")
+                li#givings givings
         .con-toggle
           .toggle
 
@@ -52,17 +53,19 @@ html
         .menu 
           ul
             a(href="/")
-              li home
+              li#home home
+            a(href="/about")
+              li#about about us
+            a(href="/connect")
+              li#connect connect
+            a(href="/serve")
+              li#serve serve and support
+            a(href="/clan")
+              li#clan clan
             a(href="/")
-              li blog
+              li#media media
             a(href="/")
-              li clan
-            a(href="/")
-              li givings 
-            a(href="/")
-              li contact
-            a(href="/")
-              li.last-child about
+              li.last-child#givings givings 
 
       //- Main Content
       block content
@@ -158,3 +161,4 @@ html
             li Feedback
   script(src="javascripts/library/jquery-3.5.1.min.js")
   script(src="javascripts/script.js")
+  block script

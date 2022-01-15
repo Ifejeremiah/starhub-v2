@@ -18,6 +18,8 @@ export class UpdateComponent implements OnInit {
 
   public message: string;
 
+  public process: string = 'Processing...';
+
   public userDetails: Users;
 
   public updateData = { name: '', email: '', password: '', password2: '', userRole: '' }
@@ -27,6 +29,7 @@ export class UpdateComponent implements OnInit {
       this.id = params.get('userid');
       this.starhubDataService.getUserById(this.id).then(user => {
         this.userDetails = user;
+        this.process = '';
       });
     });
   }

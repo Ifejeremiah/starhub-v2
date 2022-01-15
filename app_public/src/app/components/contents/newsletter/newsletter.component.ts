@@ -19,14 +19,20 @@ export class NewsletterComponent implements OnInit {
 
   public subscribers: SubscribedEmails[];
 
+  public process: string = 'Processing...';
+
   public message: string;
 
   private getSubscribedEmails(): void {
     this.starhubDataService.getAllSubscribedEmails()
-      .then(users => this.subscribers = users as SubscribedEmails[])
+      .then(users => {
+        this.subscribers = users as SubscribedEmails[];
+        this.process = '';
+      })
       .catch((err) => {
         this.message = `Sorry, ${err.error.msg}`;
         this.subscribers = null;
+        this.process = '';
       });
   }
 

@@ -23,8 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to Admin Panel
-app.use('/login', express.static(path.join(__dirname, 'app_public', 'second-build')));
-app.use('/login', (req, res) => { res.sendFile(path.join(__dirname, 'app_public', 'second-build', 'index.html')) });
+app.use('/login', express.static(path.join(__dirname, 'app_public', 'third-build')));
+app.use('/login', (req, res) => { res.sendFile(path.join(__dirname, 'app_public', 'third-build', 'index.html')) });
 
 // Passport's middleware
 app.use(passport.initialize());

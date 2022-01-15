@@ -2,6 +2,16 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 
+
+// Define User Activity Schema
+const userActivity = new mongoose.Schema({
+  activityText: String,
+  activityDate: {
+    type: Date,
+    default: Date.now
+  }
+})
+
 // Define mongoose schema
 const userSchema = new mongoose.Schema({
   name: {
@@ -19,10 +29,11 @@ const userSchema = new mongoose.Schema({
   },
   dateRegistered: {
     type: Date,
-    'default': Date.now
+    default: Date.now
   },
   salt: String,
-  hash: String
+  hash: String,
+  activities: [userActivity]
 });
 
 // Set encrypted paths for passwords
@@ -59,5 +70,10 @@ userSchema.methods.generateJwt = function () {
     code: this.role,
   }, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
+
+// Activity Log
+userSchema.methods.setActivity = function (data) {
+  this.activities.push({ activityText: data });
+}
 
 mongoose.model('User', userSchema);

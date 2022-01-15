@@ -1,5 +1,8 @@
 extends layouts/layout
 
+block head 
+  link(rel='stylesheet', href='/stylesheets/homepage.style.css')
+
 block content
 
   //- Section A
@@ -19,12 +22,12 @@ block content
         img(src="images/intro-image-Recovered.gif", alt="")
 
   //- Section B
-  .con-section#explore
+  .con-section
     .section-b.grid.grid-02.sections-07
       .con-img.flex
         img(src="images/welcome to starhub 1.png", alt="")
       .header.flex.flx-dir.flx-strt
-        h1 Welcome Home!
+        h1 Welcome to the Starhub
         p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
         a(href="/") 
           .btn.flex 
@@ -62,9 +65,9 @@ block content
                   .label
                     h3 Watch Online
 
-  //- Section B
+  //- Section C
   .con-section
-    .section-b.grid.grid-02.sections-07
+    .section-c.grid.grid-02.sections-07
       .header.flex.flx-dir.flx-strt
         h1 We the Clan
         p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
@@ -76,9 +79,9 @@ block content
       .con-img.flex
         img(src="images/clan 1.png", alt="")
 
-  //- Section C
+  //- Section D
   .con-section
-    .section-c.grid.grid-02.sections-07
+    .section-d.grid.grid-02.sections-07
       .con-img.flex
         img(src="images/workforwe 2.png", alt="")
       .header.flex.flx-dir.flx-strt
@@ -90,9 +93,9 @@ block content
             .img
               img(src="images/btn-arrow.png")
 
-  //- Section D
+  //- Section E
   .con-section
-    .section-d.grid.grid-02.sections-07
+    .section-e.grid.grid-02.sections-07
       .header.flex.flx-dir.flx-strt
         h1 We all Joyful People
         p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
@@ -103,3 +106,5 @@ block content
               img(src="images/btn-arrow.png")
       .con-img.flex
         img(src="images/gallery 1.png", alt="")
+  block script
+    script(src="javascripts/countdown.js")

@@ -12,6 +12,8 @@ export class DetailsComponent implements OnInit {
 
   @Input() public content: Users;
 
+  @Input() public process: string;
+
   constructor(private starhubDataService: StarhubDataService,
     private router: Router) { }
 
