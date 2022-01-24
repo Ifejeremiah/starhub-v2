@@ -1,7 +1,7 @@
 <div class="box-body text-center" *ngIf="process">
   <h3>{{process}}</h3>
 </div>
-<div class="box" *ngIf="!showAll && activities">
+<div class="box" *ngIf="activities">
   <div class="box-header">
     <h3>Your activities</h3>
     <a class="box-tools" *ngIf="isSuperAdmin()" routerLink="/dashboard/activity/all">
