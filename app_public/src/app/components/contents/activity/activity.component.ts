@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Activity, AllActivities, StarhubDataService } from 'src/app/services/starhub-data.service';
+import { Activity, StarhubDataService } from 'src/app/services/starhub-data.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
@@ -13,42 +13,46 @@ export class ActivityComponent implements OnInit {
   constructor(private starhubDataService: StarhubDataService,
     private authenticationService: AuthenticationService) { }
 
-  public message: string = '';
-
-  public process:string = 'Processing...';
+  public process: string = 'Processing...';
 
   public activities: Activity[];
 
-  public allAccountActivities: AllActivities[];
+  public showMore: boolean = false;
+
+  private counter: number = 10;
 
   public isSuperAdmin(): boolean {
-    const { code } = this.authenticationService.getCurrentUser()
+    const { code } = this.authenticationService.getCurrentUser();
     return code !== 110111 ? false : true;
   }
 
   ngOnInit(): void {
+    this.getActivity(null);
+  }
+
+  private doCheckLength(lists: any[], counter: number): any[] {
+    let value, index = counter ? counter : 10;
+    if (lists.length > 10 && index <= lists.length) {
+      this.showMore = true;
+      value = lists.splice(lists.length - index, lists.length);
+    } else {
+      this.showMore = false;
+      value = lists;
+    }
+    return value;
+  }
+
+  private getActivity(counter: number): void {
     this.starhubDataService.getUserActivity()
       .then(activity => {
-        if (activity.length > 0) {
-          this.activities = (activity as Activity[]);
-          this.process = '';
-        } else {
-          this.process = 'You have no activities yet.';
-        }
+        this.activities = this.doCheckLength(activity, counter);
+        this.process = '';
       });
-    this.getAllAccountActivity();
   }
 
-  public showAllUserActivities: boolean = false;
-
-  public toggleShowUserActivities(): void {
-    this.showAllUserActivities = !this.showAllUserActivities;
+  public doShowMore(): void {
+    this.counter += 10;
+    this.getActivity(this.counter);
   }
 
-  private getAllAccountActivity(): void {
-    this.starhubDataService.getAllUserActivity().then((activities) => {
-      this.allAccountActivities = activities as AllActivities[];
-      this.process = '';
-    })
-  }
 }

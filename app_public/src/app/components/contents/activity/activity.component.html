@@ -1,53 +1,27 @@
-<div class="row">
-  <div class="col-xs-12">
-    <div class="box-body text-center" *ngIf="process">
-      <h3>{{process}}</h3>
-    </div>
-    <div class="box" *ngIf="!showAllUserActivities && activities">
-      <div class="box-header">
-        <h3>Activities</h3>
-        <a class="box-tools" style="color: #fff; top: 26px;" *ngIf="isSuperAdmin()"
-          (click)="toggleShowUserActivities()">
-          <span class="btn btn-info pull-right">&nbsp;&nbsp;View All Activities&nbsp;&nbsp;</span>
-        </a>
-      </div>
-      <div class="box-body table-responsive">
-        <table class="table table-hover">
-          <tbody>
-            <tr *ngFor="let activity of activities | mostRecentFirst">
-              <td>You {{activity.activityText}} on {{activity.activityDate | date:'medium'}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div *ngIf="showAllUserActivities && allAccountActivities">
-      <button class="btn btn-default margin-buttom" (click)="toggleShowUserActivities()">
-        <a><i class="fas fa-chevron-left"></i>
-          &nbsp;&nbsp;Your activities</a>
-      </button>
-      <div class="box box-primary">
-        <div class="box-header">
-          <h3 class="text-center">All User Activities</h3>
-        </div>
-      </div>
-      <div class="box box-primary" *ngFor="let account of allAccountActivities">
-        <div class="box-header">
-          <h4>Account: {{account.accountName | titlecase}}</h4>
-          <h4>Role: {{account.accountRole | titlecase}}</h4>
-          <h4>ID: {{account.accountID}}</h4>
-        </div>
-        <div class="box-body table-responsive">
-          <table class="table table-hover">
-            <tbody>
-              <tr *ngFor="let activity of account.activities | mostRecentFirst">
-                <td>{{activity.activityText}} on {{activity.activityDate | date:'medium'}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+<div class="box-body text-center" *ngIf="process">
+  <h3>{{process}}</h3>
+</div>
+<div class="box" *ngIf="!showAll && activities">
+  <div class="box-header">
+    <h3>Your activities</h3>
+    <a class="box-tools" *ngIf="isSuperAdmin()" routerLink="/dashboard/activity/all">
+      <span class="btn btn-info pull-right">&nbsp;&nbsp;View All&nbsp;&nbsp;</span>
+    </a>
+  </div>
+  <div class="box-body table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        <tr *ngFor="let activity of activities | mostRecentFirst">
+          <td>You {{activity.activityText}}</td>
+          <td><span class="label label-primary">{{activity.activityDate | date:'medium'}}</span></td>
+        </tr>
+        <tr *ngIf="!activities.length">
+          <td>You have no activities yet...</td>
+        </tr>
+        <tr *ngIf="showMore">
+          <td (click)="doShowMore()"><a>See More</a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

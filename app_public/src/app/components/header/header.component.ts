@@ -26,6 +26,11 @@ export class HeaderComponent implements OnInit {
     return user ? user.name : 'Guest';
   }
 
+  public getUserEmail(): string {
+    const user = this.authenticationService.getCurrentUser()
+    return user ? user.email : '';
+  }
+
   public getUserRole(): string {
     return this.authenticationService.getCurrentUserRole()
   }

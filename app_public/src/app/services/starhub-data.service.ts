@@ -26,13 +26,6 @@ export class Activity {
   activityDate: string;
 }
 
-export class AllActivities {
-  accountName: string;
-  accountID: string;
-  accountRole: string;
-  activities: [Activity]
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -146,20 +139,20 @@ export class StarhubDataService {
   }
 
   public getUserActivity(): Promise<Activity[]> {
-    const url = `${this.apiBase}/activity`;
+    const url = `${this.apiBase}/activities`;
     return this.http.get(url, this.sendTokenInHeader())
       .toPromise()
       .then(msg => msg as Activity[])
       .catch(this.handleError);
   }
 
-  public getAllUserActivity(): Promise<AllActivities[]> {
-    const url = `${this.apiBase}/activity/all`;
+  public getAUserActivity(userid: string): Promise<Activity[]> {
+    const url = `${this.apiBase}/activities/${userid}`;
     return this.http.get(url, this.sendTokenInHeader())
       .toPromise()
-      .then(msg => msg as AllActivities[])
+      .then(msg => msg as Activity[])
       .catch(this.handleError);
   }
-  
+
 }
 

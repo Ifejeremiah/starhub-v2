@@ -12,6 +12,8 @@ import { ListsComponent } from '../components/contents/accounts/lists/lists.comp
 import { DetailsParentComponent } from '../components/contents/accounts/details-parent/details-parent.component';
 import { UpdateComponent } from '../components/contents/accounts/update/update.component';
 import { ActivityComponent } from '../components/contents/activity/activity.component';
+import { ActivityDetailsComponent } from '../components/contents/activity-details/activity-details.component';
+import { ActivityAllComponent } from '../components/contents/activity-all/activity-all.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -43,6 +45,14 @@ const routes: Routes = [
       {
         path: 'activity',
         component: ActivityComponent
+      },
+      {
+        path: 'activity/all',
+        component: ActivityAllComponent
+      },
+      {
+        path: 'activity/:userid',
+        component: ActivityDetailsComponent
       }
     ]
   },

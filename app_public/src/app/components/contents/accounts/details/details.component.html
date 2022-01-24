@@ -1,7 +1,9 @@
 <button routerLink="/dashboard/accounts" class="btn btn-default margin-buttom"><i
     class="fas fa-chevron-left"></i>&nbsp;&nbsp;All Users</button>
 <div class="msg error-msg" *ngIf="message">{{message}}</div>
-<div class="text-center" *ngIf="process"><h3>{{process}}</h3></div>
+<div class="text-center" *ngIf="process">
+  <h3>{{process}}</h3>
+</div>
 <div class="box box-primary" *ngIf="content">
   <div class="box-body box-profile">
     <div class="profile-user-img img-responsive user-icon flex">

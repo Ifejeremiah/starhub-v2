@@ -28,15 +28,15 @@ export class ListsComponent implements OnInit {
   }
 
   public roleClass(role) {
-    let msg;
+    let background;
     if (role === 'super admin') {
-      msg = 'label-success'
+      background = 'label-success'
     } else if (role === 'admin') {
-      msg = 'label-primary'
+      background = 'label-primary'
     } else if (role === 'user') {
-      msg = 'label-warning'
+      background = 'label-warning'
     }
-    return msg;
+    return background;
   }
 
 }

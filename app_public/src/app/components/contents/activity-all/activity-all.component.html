@@ -1,0 +1,31 @@
+<div>
+  <button class="btn btn-default margin-buttom">
+    <a routerLink="/dashboard/activity">
+      <i class="fas fa-chevron-left"></i>
+      &nbsp;&nbsp;Go back</a>
+  </button>
+  <div class="box-body text-center" *ngIf="process">
+    <h3>{{process}}</h3>
+  </div>
+  <div class="box box-primary">
+    <div class="box-header">
+      <h3><a>All Accounts</a></h3>
+    </div>
+    <div class="box-body table-responsive">
+      <table class="table table-hover">
+        <tbody>
+          <tr>
+            <th>Users</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+          <tr *ngFor="let user of users" routerLink="/dashboard/activity/{{user._id}}" style="cursor:pointer;">
+            <td>{{user.name | titlecase}}</td>
+            <td>{{user.email}}</td>
+            <td><span class="label" [ngClass]="roleClass(user.role)">{{user.role}}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -21,6 +21,8 @@ import { DetailsParentComponent } from './components/contents/accounts/details-p
 import { DetailsComponent } from './components/contents/accounts/details/details.component';
 import { UpdateComponent } from './components/contents/accounts/update/update.component';
 import { ActivityComponent } from './components/contents/activity/activity.component';
+import { ActivityDetailsComponent } from './components/contents/activity-details/activity-details.component';
+import { ActivityAllComponent } from './components/contents/activity-all/activity-all.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ActivityComponent } from './components/contents/activity/activity.compo
     DetailsComponent,
     UpdateComponent,
     ActivityComponent,
+    ActivityDetailsComponent,
+    ActivityAllComponent,
   ],
   imports: [
     BrowserModule,

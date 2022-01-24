@@ -35,10 +35,10 @@ router.route('/email/subscribers/:emailId')
 // Process Newsletter Email Subscriptions
 router.post('/subscribe', processEmails);
 
-// Get All User Activity
-router.get('/activity/all', auth, getActivityOfAllUsers);
-
 // Get User Activity
-router.get('/activity', auth, getActivity);
+router.get('/activities', auth, getActivity);
+
+// Get A User Activity
+router.get('/activities/:userId', auth, getActivityOfAllUsers);
 
 module.exports = router;

@@ -1,6 +1,5 @@
-.box-tools {
-  color: #fff;
-  top: 26px;
+button.btn {
+  margin: 20px 0;
 }
 
 .label {

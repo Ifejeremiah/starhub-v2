@@ -13,38 +13,54 @@ export class NewsletterComponent implements OnInit {
   constructor(private starhubDataService: StarhubDataService,
     private router: Router) { }
 
-  ngOnInit(): void {
-    this.getSubscribedEmails();
-  }
-
   public subscribers: SubscribedEmails[];
 
   public process: string = 'Processing...';
 
   public message: string;
 
-  private getSubscribedEmails(): void {
-    this.starhubDataService.getAllSubscribedEmails()
-      .then(users => {
-        this.subscribers = users as SubscribedEmails[];
-        this.process = '';
-      })
-      .catch((err) => {
-        this.message = `Sorry, ${err.error.msg}`;
-        this.subscribers = null;
-        this.process = '';
-      });
+  public showMore: boolean = false;
+
+  private counter: number = 10;
+
+  ngOnInit(): void {
+    this.getSubscribedEmails(null);
   }
 
-  public deleteSubscriberEmail(email: string): void {
+  private doCheckLength(lists: any[], counter: number): any[] {
+    let value, index = counter ? counter : 10;
+    if (lists.length > 10 && index <= lists.length) {
+      this.showMore = true;
+      value = lists.splice(lists.length - index, lists.length);
+    } else {
+      this.showMore = false;
+      value = lists;
+    };
+    return value;
+  }
+
+  private getSubscribedEmails(counter: number): void {
+    this.starhubDataService.getAllSubscribedEmails()
+      .then(emails => {
+        this.subscribers = this.doCheckLength(emails, counter);
+        this.process = '';
+      })
+  }
+
+  public deleteEmail(email: string): void {
     if (window.confirm(`Delete "${email}" from Subscribed Emails?`) === true) {
       this.starhubDataService.deleteASubscribedEmail(email)
         .then((msg) => {
           this.message = msg.msg ? 'Subscribed Email deleted!' : null;
           window.setTimeout(() => { this.message = '' }, 4000);
-          this.getSubscribedEmails();
+          this.getSubscribedEmails(this.counter);
         });
     } else { return null }
+  }
+
+  public doShowMore(): void {
+    this.counter += 10;
+    this.getSubscribedEmails(this.counter);
   }
 
 }

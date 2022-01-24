@@ -1,0 +1,27 @@
+<button class="btn btn-default margin-buttom" routerLink="/dashboard/activity">
+  <a routerLink="/dashboard/activity/all">
+    <i class="fas fa-chevron-left"></i>
+    &nbsp;&nbsp;Go back</a>
+</button>
+<h3 class="text-center" *ngIf="process">{{process}}</h3>
+<div class="box box-primary">
+  <div class="box-header" *ngIf="userDetail">
+    <h4>Account: {{userDetail.name | titlecase}}</h4>
+    <h4>Role: {{userDetail.role | titlecase}}</h4>
+    <h4>Date Created: {{userDetail.dateRegistered | date:'medium'}}</h4>
+  </div>
+  <div class="box-body table-responsive">
+    <table class="table table-hover">
+      <tbody>
+        <tr *ngFor="let activity of userActivities | mostRecentFirst">
+          <td>{{activity.activityText}}</td>
+          <td><span class="label label-primary">{{activity.activityDate | date:'medium'}}</span></td>
+        </tr>
+        <tr *ngIf="showMore" (click)="doShowMore()">
+          <td><a>See More</a></td>
+        </tr>
+        <tr *ngIf="!userActivities">This user does not have activities yet</tr>
+      </tbody>
+    </table>
+  </div>
+</div>
