@@ -1,6 +1,7 @@
 // Handle requests to app API
 const makeRequest = (action, methodType, postbody, callback, query) => {
-  const apiOptions = { server: 'http://localhost:5500' };
+  const apiOptions = { server: `http://localhost:${process.env.PORT}` };
+
   if (process.env.NODE_ENV === 'production') {
     apiOptions.server = 'https://the-starhub.herokuapp.com';
   }
@@ -17,13 +18,17 @@ const homeCtrl = (req, res) => {
   res.render('homepage', { title: 'The StarHub - The Youth Expression of Daystar Christian Center.' });
 };
 
+const indexCtrl = (req, res) => {
+  res.render('home', { title: 'The StarHub - The Youth Expression of Daystar Christian Center.' });
+};
+
 // Post request to subscribe email
 const subscribe = (req, res) => {
   const { email } = req.body;
   if (!email) {
     return res.status(400).send('Please enter a valid email address to subscribe')
   }
-  makeRequest('subscribe', 'POST', { email }, (err, { statusCode }, body) => {
+  makeRequest('subscribe', 'POST', { email }, (err, { statusCode }) => {
     if (err) console.log(err);
     if (statusCode === 201) {
       return res.status(201).send('Thank you for registering your email')
@@ -35,5 +40,6 @@ const subscribe = (req, res) => {
 
 module.exports = {
   homeCtrl,
+  indexCtrl,
   subscribe
 }

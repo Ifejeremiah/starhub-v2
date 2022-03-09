@@ -1,0 +1,69 @@
+.con-navbar {
+  display: flex;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  transition: background .4s;
+}
+
+.con-navbar.active {
+  background: #ffffffd4;
+}
+
+.navbar {
+  padding: 0;
+  width: 100%;
+}
+
+.navbar .brand h2 {
+  font-size: 1.16rem;
+}
+
+.navbar ul li {
+  text-transform: uppercase;
+  font-size: .74rem;
+  font-weight: 500;
+}
+
+.navbar ul a {
+  margin: 0 10px;
+}
+
+.navbar .menu {
+  font-size: 1.4rem;
+  color: var(--ash-color-02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navbar .menu i {
+  display: none;
+}
+
+.navbar .menu i#first-menu.active {
+  display: block;
+}
+
+.navbar .menu i#second-menu.active {
+  display: block;
+}
+
+
+/* Media Query */
+
+/* > 992px */
+@media (min-width: 800px) {
+
+  .con-navbar {
+    padding: 20px 0;
+    display: block;
+  }
+
+  .navbar .brand h2 {
+    font-size: .8rem;
+  }
+}

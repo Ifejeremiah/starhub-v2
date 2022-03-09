@@ -1,0 +1,25 @@
+.con-sidebar {
+  position: fixed;
+  width: 100%;
+  width: 60%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background: #000000f0;
+  color: rgb(201 201 201);
+  text-transform: capitalize;
+}
+
+.con-sidebar ul {
+  padding: 40px 20px;
+}
+
+.con-sidebar ul li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+.con-sidebar ul li.last-child {
+  border: 0;
+}

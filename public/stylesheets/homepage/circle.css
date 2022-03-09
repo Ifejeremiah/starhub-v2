@@ -1,0 +1,254 @@
+/* Count down*/
+.section .bg-img {
+  position: absolute;
+  top: 140px;
+  z-index: -1;
+}
+
+.con-content .header h1 {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.con-circle {
+  margin: 40px 0;
+}
+
+.con-right,
+.con-left,
+.con-bottom,
+.con-bottom .top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.con-right .right-side, 
+.con-left .left-side {
+  box-shadow: -10px 14px 20px rgb(221 221 221);
+  background: #fff;
+  padding: 10px 20px;
+}
+
+.con-right .right-side h3, 
+.con-left .left-side h3 {
+  color: var(--bgcol-01);
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+.con-right .right-side p, 
+.con-left .left-side p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.con-right .right-side {
+  border-radius: 1rem 0 1rem 1rem;
+}
+
+.con-left .left-side {
+  border-radius: 1rem 1rem 1rem 0;
+  margin: 20px 0;
+}
+
+.con-bottom .top {
+  color: var(--bgcol-01);
+  margin: 10px 0;
+}
+
+.con-bottom .bottom .label h3 {
+  font-size: 1.16rem;
+  font-weight: 500;
+}
+
+
+/* Circle */
+.con-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.con-circle #circle {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+  animation: rotate 60s linear infinite;
+	border: 2px dashed rgba(0, 0, 0, 0.472);
+}
+
+.con-circle #dot {
+	position: absolute;
+	top: -8px;
+	left: 100px;
+	width: 18px;
+	height: 18px;
+  border-radius: 50%;
+  background: var(--bgcol-01);
+}
+
+.con-circle .countdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.con-circle .countdown .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.con-circle .countdown p#timestamp {
+  font-size: 1.2rem;
+  margin: 20px 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.con-circle .countdown h3 {
+  color: #fff;
+  font-weight: 500;
+  font-size: .8rem;
+  padding: 8px 20px;
+  text-align: center;
+  border-radius: 1rem;
+  transition: .25s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.178);
+  background: var(--bgcol-01);
+}
+
+.con-circle .countdown h3:hover {
+  opacity: .8;
+  transform: scale(.97)
+}
+
+/* Animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+/* Media Queries */
+
+/* > 700 */
+@media (min-width: 700px) {
+  .section .bg-img {
+    top: 60px;
+  }
+}
+
+
+/* > 1000 */
+@media (min-width: 1000px) {
+  #reduce-01 {
+    font-size: .68rem;
+    font-weight: 600;
+  }
+
+  #reduce-02 {
+    font-size: .8rem;
+    font-weight: 600;
+  }
+
+  #reduce-03 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .section .bg-img {
+    top: -20px;
+  }
+
+  .con-content .header h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .con-right {
+    position: absolute;
+    top: 124px;
+    left: 160px;
+  }
+
+  .con-right .right-side {
+    text-align: right;
+  }
+
+  .con-left {
+    position: absolute;
+    top: 56px;
+    right: 266px;
+  }
+
+  .con-bottom {
+    position: absolute;
+    top: 236px;
+    left: 290px;
+  }
+
+  .con-bottom .bottom-side {
+    position: relative;
+  }
+
+  .con-bottom .bottom-side .top {
+    position: absolute;
+    top: -33px;
+    right: -10px;
+  }
+}
+
+
+/* > 1200 */
+@media (min-width: 1200px) {
+  .con-right {
+    top: 130px;
+    left: 20%;
+  }
+
+  .con-left {
+    top: 70px;
+    right: 28%;
+  }
+
+  .con-bottom {
+    top: 256px;
+    left: 32%;
+  }
+}
+
+
+/* > 1300 */
+@media (min-width: 1300px) {
+  .con-right {
+    left: 24%;
+  }
+
+  .con-left {
+    top: 66px;
+    right: 30%;
+}
+
+  .con-bottom {
+    top: 236px;
+    left: 33%;
+  }
+}

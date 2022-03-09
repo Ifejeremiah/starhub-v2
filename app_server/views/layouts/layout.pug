@@ -5,160 +5,23 @@ html
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel="icon" type="image/x-icon" href="images/starhub-logo.png")
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css")
-    link(rel='stylesheet', href='/stylesheets/layout.style.css')
+
+    include styles
     block head
-    link(rel='stylesheet', href='/stylesheets/media.queries.css')
 
   body
-    //- Navigation
-    .con-navbar 
-      .navbar.container.flex.flx-spc-btw 
-        .left-side.flex.flx-spc-btw
-          .nav-brand-name
-            h2 the starhub
-          .nav-brand-logo.flex
-            img(src="images/starhub-logo.png", alt="The StarHub") 
-        .right-side
-          .links 
-            ul.flex.flx-spc-btw
-              a(href="/")
-                li#home home
-              a(href="/about")
-                li#about about us
-              a(href="/connect")
-                li#connect connect
-              a(href="/serve")
-                li#serve serve and support
-              a(href="/clan")
-                li#clan clan
-              a(href="")
-                li#media media
-              a(href="")
-                li#givings givings
-        .con-toggle
-          .toggle
+    .main-container
+      include navbar
+      
+      .con-content
+        block content  
 
-    //- Main Div
-    .main
+      include sub 
+      include footer
+    
+      include topbtn
+    
+    include sidebar
 
-      //- Back To Top Button
-      .con-top-btn
-        .top-btn
-          i.fas.fa-chevron-up
-
-      //- Slide Menu
-      .con-menu
-        .menu 
-          ul
-            a(href="/")
-              li#home home
-            a(href="/about")
-              li#about about us
-            a(href="/connect")
-              li#connect connect
-            a(href="/serve")
-              li#serve serve and support
-            a(href="/clan")
-              li#clan clan
-            a(href="/")
-              li#media media
-            a(href="/")
-              li.last-child#givings givings 
-
-      //- Main Content
-      block content
-
-      //- Subscribe
-      .con-subscribe
-        .subscribe.sections-07 
-          .header
-            h1 Subscribe for our
-              br
-              |Weekly Newsletters
-          form(action="" method="POST")
-            .server-msg
-              p
-            .form-elements.flex.flx-spc-btw
-              .form-element
-                input(type="email" placeholder="Email Address" name="email" id="email" autocomplete="off" spellcheck="false")
-              .form-element 
-                button(type="submit").btn.flex 
-                  p Subscribe
-                  .img
-                    img(src="images/btn-arrow.png")
-
-    //- Footer
-    .con-footer.container
-      .footer-A.grid.grid-05
-        .footer-content
-          .header
-            .footer-brand.flex.flx-spc-btw
-              .footer-brand-name
-                h2 the starhub
-              .footer-brand-logo.flex
-                img(src="images/starhub-logo.png", alt="The StarHub")
-          .content 
-            p We are commited to ensuring digital accessibility
-        .footer-content
-          h1.header support 
-          ul 
-            a(href="/")
-              li Givings
-            a(href="/")
-              li Accessories
-            a(href="/")
-              li Support
-        .footer-content
-          h1.header service
-          ul 
-            li 
-              a(href="") Join a workforce
-            li
-              a(href="") Register for service
-            li
-              a(href="") Join a clan
-        .footer-content
-          h1.header about
-          ul 
-            li
-              a(href="") About Us
-            li
-              a(href="") Announcements
-            li
-              a(href="") Contact
-        .footer-content
-          h1.header our address
-          .content 
-            p 2 Ziatech Road, Oregun, Lagos
-          .socials 
-            ul.flex.flx-spc-btw
-              li 
-                a(href="https://web.facebook.com/thestarhub/")
-                  i.fab.fa-facebook-f 
-              li 
-                a(href="/")
-                  i.fab.fa-instagram
-              li 
-                a(href="/")
-                  i.fab.fa-twitter
-              li 
-                a(href="/")
-                  i.fab.fa-youtube
-      .footer-B.flex.flx-spc-btw
-        .copyrights.flex.flx-spc-btw
-          p &copy;&nbsp;
-            .yearstamp 0000
-            |&nbsp;The Starhub.&nbsp;&nbsp;All rights reserved.
-          
-        ul.flex.flx-spc-btw
-          a(href="") 
-            li Services
-          a(href="") 
-            li Givings
-          a(href="") 
-            li Feedback
-  script(src="javascripts/library/jquery-3.5.1.min.js")
-  script(src="javascripts/script.js")
-  block script
+    block script
+    include scripts

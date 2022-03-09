@@ -1,0 +1,50 @@
+/* Styling For Homepage */
+
+:root {
+  --background-color: #e9f8fb; 
+}
+
+
+/* Navbar Style */
+.con-navbar {
+  background: var(--background-color);
+}
+
+
+/* Sections */
+/* Section A */
+.con-section .section-a {
+  position: relative;
+  padding-top: 80px;
+  margin-bottom: 60px;
+  background: var(--background-color);
+}
+
+.section-a p {
+  max-width: 400px;
+  width: 90%;
+}
+
+
+/* Section B */
+
+
+
+/* Media Queries */
+@media (min-width: 500px) {
+  .con-section .section-a {
+    margin-bottom: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .con-section .section-a {
+    margin-bottom: 80px;
+  }
+}
+
+@media (min-width: 900px) {
+  .con-section .section-a {
+    margin-bottom: 120px;
+  }
+}

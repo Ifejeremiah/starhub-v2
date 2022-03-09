@@ -1,0 +1,77 @@
+.con-sub {
+  padding: 40px 0;
+}
+
+.sub .header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.sub .forms {
+  margin: 40px 0;
+}
+
+.sub .forms .msg {
+  padding: 20px 0;
+  display: none;
+}
+
+.sub .forms .msg.show {
+  display: block;
+}
+
+.sub .forms .msg p {
+  font-size: 1rem;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: .25rem; 
+}
+
+.sub .forms .msg p.error {
+  background: rgb(248, 12, 12);
+}
+
+.sub .forms .msg p.success {
+  background: rgb(67, 230, 2);
+}
+
+.sub .forms input {
+  width: 100%;
+  border-bottom: 2px solid rgb(134, 134, 134);
+  padding: 6px 20px;
+  font-size: 1.2rem;
+  transition: padding-left 1s;
+}
+
+.sub .forms input.error {
+  border-bottom: 2px solid rgb(228, 3, 3);
+}
+
+.sub .forms input:focus {
+  padding-left: 40px;
+  border-bottom: 2px solid rgb(54, 54, 54);
+}
+
+
+@media (min-width: 768px) {
+  .con-sub {
+    padding: 60px 0;
+  }
+
+  .sub .forms {
+    margin: 20px 0;
+  }
+
+  .sub .forms .msg p {
+    font-size: .8rem;
+  }
+
+  .sub .forms input {
+    font-size: .7rem;
+  }
+  
+  .sub .forms button {
+    font-size: .8rem;
+  } 
+  
+}

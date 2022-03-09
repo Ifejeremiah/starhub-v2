@@ -1,7 +1,14 @@
+
+
+
+
+
+
+
 $(function () {
 
   // Year Stamp
-  $('.copyrights .yearstamp').text(new Date().getFullYear());
+  $('#yearstamp').text(new Date().getFullYear());
 
   // Navbar Menu
   const $menu = $('.con-menu');

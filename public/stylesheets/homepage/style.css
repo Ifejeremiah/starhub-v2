@@ -1,0 +1,167 @@
+.con-overlay {
+  padding-top: 100px;
+}
+
+.overlay {
+  position: relative;
+  height: 150px;
+  background: linear-gradient(to right, var(--bg-1), var(--bg-2), var(--bg-3));
+}
+
+.overlay::before {
+  content: '';
+  left: 0;
+  right: 0;
+  top: -10px;
+  z-index: 1;
+  height: 100px;
+  position: absolute;
+  transform: skewY(-3deg);
+  -webkit-transform: skewY(-3deg);
+  -ms-transform: skewY(-3deg);
+  -moz-transform: skewY(-3deg);
+  background: linear-gradient(to right, var(--bg-1), var(--bg-2), var(--bg-3));
+}
+
+.overlay::after {
+  content: '';
+  left: 0;
+  right: 0;
+  top: 60px;
+  z-index: 1;
+  height: 100px;
+  position: absolute;
+  transform: skewY(3deg);
+  -webkit-transform: skewY(3deg);
+  -ms-transform: skewY(3deg);
+  -moz-transform: skewY(3deg);
+  background: linear-gradient(to right, var(--bg-1), var(--bg-2), var(--bg-3));
+}
+
+.overlay .img {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+
+/* Media Query for Breakpoints */
+
+/* > 500px */
+@media (min-width: 500px) {
+  .overlay {
+    height: 150px;
+  }
+
+  .overlay::before {
+    top: -16px;
+  }
+
+  .overlay::after {
+    top: 120px;
+  }
+
+  .overlay .img {
+    top: -80px;
+  }
+}
+
+/* > 700px */
+@media (min-width: 700px) {
+  .con-overlay {
+    padding-top: 160px;
+  }
+
+  .overlay {
+    height: 240px;
+  }
+
+  .overlay::before {
+    top: -24px;
+  }
+
+  .overlay::after {
+    top: 220px;
+  }
+
+  .overlay .img {
+    top: -128px;
+  }
+}
+
+/* > 900px */
+@media (min-width: 900px) {
+  .con-overlay {
+    padding-top: 180px;
+  }
+
+  .overlay {
+    height: 320px;
+  }
+
+  .overlay::after {
+    top: 280px;
+  }
+
+  .overlay .img {
+    top: -134px;
+  }
+}
+
+/* > 1000px */
+@media (min-width: 1000px) {
+  .overlay {
+    height: 300px;
+  }
+
+  .overlay::after {
+    top: 230px;
+  }
+
+  .overlay .img {
+    top: -140px;
+    width: 80%;
+  }
+}
+
+/* > 1200px */
+@media (min-width: 1200px) {
+  .overlay {
+    height: 320px;
+  }
+
+  .overlay::before {
+    top: -40px;
+  }
+
+  .overlay::after {
+    top: 280px;
+  }
+
+  .overlay .img {
+    top: -174px;
+  }
+
+}
+
+/* > 1300px */
+@media (min-width: 1300px) {
+  .overlay {
+    height: 420px;
+  }
+
+  .overlay::before {
+    top: -40px;
+  }
+
+  .overlay::after {
+    top: 360px;
+  }
+
+  .overlay .img {
+    top: -180px;
+  }
+}

@@ -1,0 +1,48 @@
+.con-pulse {
+  margin: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse {
+  position: relative;
+}
+
+.pulse .bg {
+  height: 45px;
+  width: 45px;
+  background: #f0e5e1;
+  border-radius: 50%;
+  animation: pulse 2s linear infinite;
+}
+
+.pulse:hover .bg {
+  animation: none;
+}
+
+.pulse .inner {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+  top: 0;
+  background: blue;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bgcol-01);
+}
+
+@keyframes pulse {
+  0% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% { 
+    transform: scale(2); 
+    opacity: 0;
+  }
+}

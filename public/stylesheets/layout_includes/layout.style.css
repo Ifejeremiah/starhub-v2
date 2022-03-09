@@ -1,0 +1,41 @@
+/* Master Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400..900&display=swap');
+
+
+:root {
+  --ash-color-02: rgb(175, 174, 174);
+  --bg-1: #ccf8d1;
+  --bg-2: #d6c8f8;
+  --bg-3: #f7e1c4;
+  --bgcol-01: #db6128;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+.main-container {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  right: 0;
+  background: #fff;
+  transition: right .5s;
+}
+
+.main-container.slide-left {
+  right: 60%;
+}
+
+.main-container .con-content {
+  padding-top: 60px;
+}
