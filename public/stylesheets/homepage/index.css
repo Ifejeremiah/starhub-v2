@@ -5,29 +5,25 @@
 }
 
 
-/* Navbar Style */
-.con-navbar {
+/* Navbar & Section A*/
+.con-navbar,
+.section-a  {
   background: var(--background-color);
 }
 
 
-/* Sections */
 /* Section A */
-.con-section .section-a {
+
+.padbtm {
+  padding-top: 120px;
   position: relative;
-  padding-top: 80px;
-  margin-bottom: 60px;
-  background: var(--background-color);
+  margin-bottom: 100px;
 }
 
 .section-a p {
   max-width: 400px;
   width: 90%;
 }
-
-
-/* Section B */
-
 
 
 /* Media Queries */

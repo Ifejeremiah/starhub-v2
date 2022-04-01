@@ -1,3 +1,5 @@
+/* Styling For ALL pages */
+
 img {
   width: 100%;
   height: auto;
@@ -29,6 +31,10 @@ ul {
 
 .row {
   margin: 0;
+}
+
+.card {
+  border: 0;
 }
 
 .grid {
@@ -85,8 +91,14 @@ button#cta img {
   width: 18px;
 }
 
+#padbtm {
+  padding: 120px 0;
+  position: relative;
+  margin-bottom: 80px;
+}
 
 
+/* Media Queries */
 @media (min-width: 768px) {
   button#cta {
     font-size: .8rem;
@@ -109,3 +121,4 @@ button#cta img {
     width: 74%;
   }
 }
+

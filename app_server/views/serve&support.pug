@@ -1,55 +1,61 @@
 extends layouts/layout
 
 block head 
-  link(rel='stylesheet', href='/stylesheets/serve&support.style.css')
+  link(rel='stylesheet', href='/stylesheets/serve&support/style.css')
 
 block content
 
   //- Section A
-  .con-section-a
-    .section-a
-      .header.flex.flx-dir
-        h1 Serve and Support
-        p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, asperiores ut adipisci doloribus, nisi, laborum voluptatibus placeat labore doloremque possimus.
+  .section-a
+    #padbtm
+      .contain-02.text-center.d-flex.flex-column.align-items-center.jusify-content-center 
+        h1#text-01 Serve and Support
+        p#text-01 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae soluta aliquid autem expedita repellendus ad dolore tempore harum quod.
+
 
   //- Section B
-  .con-section.first
-    .section-b.grid.grid-02.sections-07
-      .con-img.flex
-        img(src="images/flyer 1.png", alt="")
-      .header.flex.flx-dir.flx-strt
-        h1 Invite a Friend
-        p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
-        a(href="/") 
-          .btn.flex 
-            p Read More
-            .img
-              img(src="images/btn-arrow.png")
+  .section-b
+    .contain-02.d-lg-flex.align-items-center.justify-content-center.pb-5.pb-lg-0
+      .col-lg-6
+        .img.d-flex.align-items-center.justify-content-center
+          img(src="images/flyer 1.png", alt="")
+        
+      .col-lg-6.py-3.py-lg-0
+        h1#text-01 Invite a Friend
+        p#text-01 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quae modi fugiat animi laudantium? Autem tenetur harum magni nulla quas aliquid deleniti.
+        .btns.d-flex 
+          a(href="/home").me-3  
+            button#cta Read More
+              img(src="/images/btn-arrow.png")
 
-  //- Section C
-  .con-section
-    .section-c.grid.grid-02.sections-07
-      .header.flex.flx-dir.flx-strt
-        h1 Join a Team
-        p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
-        a(href="/") 
-          .btn.flex 
-            p Read More
-            .img
-              img(src="images/btn-arrow.png")
-      .con-img.flex
-        img(src="images/tv 1.png", alt="")
 
-  //- Section D
-  .con-section
-    .section-d.grid.grid-02.sections-07
-      .con-img.flex
-        img(src="images/flyer 1.png", alt="")
-      .header.flex.flx-dir.flx-strt
-        h1 Hearty Givings
-        p.margin-02 Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis asperiores a ullam beatae voluptatem praesentium accusantium aliquam dolores perferendis dolorum exercitationem obcaecati aut maxime consequuntur nobis quas ipsa, quis repellendus.
-        a(href="/") 
-          .btn.flex 
-            p Read More
-            .img
+    //- Section C
+  .section-c
+    .contain-02.d-lg-flex.align-items-center.justify-content-center.pb-5.pb-lg-0
+      .col-lg-6.py-3.py-lg-0
+        h1#text-01 Join a Team
+        p#text-01 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quae modi fugiat animi laudantium? Autem tenetur harum magni nulla quas aliquid deleniti.
+        .btns.d-flex 
+          a(href="/home").me-3  
+            button#cta Read More
               img(src="images/btn-arrow.png")
+      .col-lg-6
+        .img.d-flex.align-items-center.justify-content-center
+          img(src="images/tv 1.png", alt="")
+
+
+
+    //- Section D
+  .section-d
+    .contain-02.d-lg-flex.align-items-center.justify-content-center.pb-5.pb-lg-0
+      .col-lg-6
+        .img.d-flex.align-items-center.justify-content-center
+          img(src="images/flyer 1.png", alt="")
+        
+      .col-lg-6.py-3.py-lg-0
+        h1#text-01 Hearty Givings
+        p#text-01 Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quae modi fugiat animi laudantium? Autem tenetur harum magni nulla quas aliquid deleniti.
+        .btns.d-flex 
+          a(href="/home").me-3  
+            button#cta Read More
+              img(src="/images/btn-arrow.png")

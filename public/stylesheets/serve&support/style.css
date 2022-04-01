@@ -1,0 +1,12 @@
+/* Styling For Serve & Support page */
+
+:root {
+  --background-color: rgb(248, 233, 247); 
+}
+
+
+/* Navbar & Section A*/
+.con-navbar,
+.section-a  {
+  background: var(--background-color);
+}

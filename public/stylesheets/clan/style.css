@@ -1,0 +1,11 @@
+/* Styling For Clan Page */
+
+:root {
+  --background-color: rgb(248, 240, 233); 
+}
+
+/* Navbar & Section A*/
+.con-navbar,
+.section-a  {
+  background: var(--background-color);
+}

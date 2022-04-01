@@ -6,11 +6,11 @@ const mongoose = require('mongoose'); //Requires mongoose package
 // (NOTICE) ---- SET DATABASE URI IN A .ENV FILE  
 
 // URIs to connect to a database
-let dbURI = process.env.DBURI;    // Set and Load database URI from .env file in development mode or use database defaults URI
+let dbURI = process.env.MONGODB_URI_LOCAL;    // Set and Load database URI from .env file in development mode or use database defaults URI
 let dbType = 'local database';
 
 if (process.env.NODE_ENV === 'production') {    // Load database URI in production mode
-  dbURI = process.env.MONGODB_URI;
+  dbURI = process.env.MONGODB_URI_ATLAS;
   dbType = 'remote database';
 }
 
